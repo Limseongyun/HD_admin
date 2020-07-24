@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Loan" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="1280">
+        <Div id="Div00" taborder="1" left="362" top="150" width="298" height="175" border="1px solid">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit00" taborder="0" left="116" top="44" width="119" height="26"/>
+              <Edit id="Edit00_00" taborder="1" left="116" top="84" width="119" height="26"/>
+              <Static id="Static00" taborder="2" text="사번" left="53" top="47" width="43" height="23"/>
+              <Static id="Static00_00" taborder="3" text="비밀번호" left="53" top="83" width="53" height="23" onclick="Div00_Static00_00_onclick"/>
+              <Button id="Button00" taborder="4" text="로그인" left="104" top="130" width="87" height="28" onclick="Div00_Button00_onclick"/>
+            </Layout>
+            <Layout name="screen00"/>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[onload=function(){
+
+var screeninfo = [
+           {"id":"Desktop_screen","type":"desktop","themeid":"theme::default","xadl":"Application_Desktop.xadl.js"}
+			];
+			nexacro._initHTMLSysEvent(window, document);			
+
+			nexacro._initEnvironment(screeninfo);
+
+            nexacro._prepareManagerFrame(onloadframework);
+			}
+
+this.Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+this.go("FrameBase::Form_Work.xfdl");
+	//onload()
+
+};
+ ]]></Script>
+  </Form>
+</FDL>

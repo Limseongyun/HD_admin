@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Work" width="824" height="718" titletext="Form_Work" onload="Form_Work_onload">
+    <Layouts>
+      <Layout width="824" height="718" screenid="Desktop_screen">
+        <Static id="Static00" taborder="0" text="환영합니다." left="344" top="144" width="473" height="226"/>
+      </Layout>
+      <Layout name="screen00" width="1280" height="720" screenid="screen00"/>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[	
+	
+this.Form_Work_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+
+	onload()
+};
+onload=function(){
+
+var screeninfo = [
+           {"id":"Desktop_screen","type":"desktop","themeid":"theme::default","xadl":"Application_Desktop.xadl.js"}
+			];
+			nexacro._initHTMLSysEvent(window, document);			
+
+			nexacro._initEnvironment(screeninfo);
+
+            nexacro._prepareManagerFrame(onloadframework);
+			}]]></Script>
+  </Form>
+</FDL>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Form_Top" width="1024" height="50" titletext="Form_Top">
+    <Layouts>
+      <Layout width="1024" height="50" screenid="Desktop_screen">
+        <Menu id="Menu00" taborder="0" left="200" top="0" width="824" height="50" onmenuclick="Menu00_onmenuclick" innerdataset="Dataset0" captioncolumn="menu_name" idcolumn="menu_id" levelcolumn="menu_level" background="#1369D8"/>
+        <Div id="Div00" taborder="1" left="0" top="0" width="200" height="50" background="#1572E8">
+          <Layouts>
+            <Layout>
+              <ImageViewer id="ImageViewer00" taborder="0" text="ImageViewer00" left="0" top="0" width="199" height="50" onclick="Div00_ImageViewer00_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Menu00_onmenuclick = function(obj:nexacro.Menu,e:nexacro.MenuClickEventInfo)
+{
+	
+};
+
+this.Div00_ImageViewer00_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	
+};
+]]></Script>
+    <Objects/>
+  </Form>
+</FDL>

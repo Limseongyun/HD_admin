@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ADL version="2.0">
+  <Application id="Application_Desktop_1" screenid="screen00">
+    <Layout>
+      <MainFrame id="mainframe" showtitlebar="true" showstatusbar="true" width="1280" height="720" titletext="FullFrame">
+        <ChildFrame id="WorkFrame" showtitlebar="false" showstatusbar="false" formurl="Base::Loan.xfdl"/>
+      </MainFrame>
+    </Layout>
+  </Application>
+</ADL>
