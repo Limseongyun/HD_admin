@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="loan">
+	<insert id="productadd" parameterType="lpvo">
+		insert into loan_product values(loan_product_seq.nextVal,#{lp_name},#{lp_interestrate},#{lp_cancelfee},#{lp_maximum},#{lp_dambo})
+	</insert>
+	<select id="list" parameterType="searchvo" resultType="lpvo">
+		select lp_num,lp_name,lp_interestrate,lp_cancelfee,lp_maximum,lp_dambo from loan_product
+		<if test="searchtype != null">
+			<where>
+				<choose>
+					<when test="searchtype == 1">
+						lp_num = #{searchvalue}
+					</when>
+					<when test="searchtype == 2">
+						lp_name like '%'|| #{searchvalue} ||'%'
+					</when>
+					<when test="searchtype == 3">
+						lp_dambo = #{searchvalue}
+					</when>
+				</choose>
+			</where>
+		</if>
+		order by 1 desc
+	</select>
+	<delete id="productdel" parameterType="int">
+		delete loan_product where lp_num = #{lp_num}
+	</delete>
+</mapper>
