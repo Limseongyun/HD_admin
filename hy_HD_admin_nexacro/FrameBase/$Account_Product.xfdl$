@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Account_Product" width="810" height="700" titletext="New Form">
+    <Layouts>
+      <Layout height="700" mobileorientation="landscape" width="810">
+        <Button id="Button00" taborder="0" text="계좌상품추가스" left="78" top="83" width="212" height="64"/>
+      </Layout>
+    </Layouts>
+  </Form>
+</FDL>
