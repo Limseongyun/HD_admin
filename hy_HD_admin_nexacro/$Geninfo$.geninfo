@@ -22,6 +22,10 @@
       <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\DeviceAPI.json" checksum="20200527181348" errormsg=""/>
       <File url="Application_Desktop.xadl" checksum="20200724160433" errormsg=""/>
       <File url="Application_Desktop_1.xadl" checksum="20200724160432" errormsg=""/>
+      <File url="FrameBase\Loan_screening.xfdl" checksum="20200725170409" errormsg=""/>
+      <File url="FrameBase\Form_Left.xfdl" checksum="20200725163410" errormsg=""/>
+      <File url="FrameBase\loan_product.xfdl" checksum="20200725170526" errormsg=""/>
+      <File url="FrameBase\Account_Product.xfdl" checksum="20200725170931" errormsg=""/>
     </Info>
   </GenInfo>
 </root>
