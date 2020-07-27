@@ -13,13 +13,12 @@
               <Static id="Static01_00" taborder="4" text="대출상태 :" left="467" top="27" width="76" height="24" font="16px/normal &quot;Gulim&quot;"/>
               <Combo id="lc_state" taborder="5" text="전체" left="558" top="23" width="133" height="32" innerdataset="lc_state" codecolumn="name" datacolumn="name" value="전체" index="0"/>
               <Static id="Static01_00_00" taborder="6" text="대출명 :" left="18" top="69" width="76" height="24" font="16px/normal &quot;Gulim&quot;"/>
-              <Combo id="lp_name" taborder="7" text="Combo01" left="108" top="65" width="133" height="32" innerdataset="lp_name" codecolumn="lp_name" datacolumn="lp_name"/>
+              <Combo id="lp_name" taborder="7" text="Combo01" left="108" top="65" width="133" height="32" innerdataset="lp_name" codecolumn="lp_name" datacolumn="lp_name" onitemchanged="Div00_lp_name_onitemchanged"/>
               <Static id="Static01_00_00_00" taborder="8" text="대출자명 :" left="310" top="70" width="76" height="24" font="16px/normal &quot;Gulim&quot;"/>
               <Edit id="mem_name" taborder="9" left="400" top="69" width="133" height="31"/>
               <Button id="searchbtn" taborder="10" text="검색" left="579" top="67" width="109" height="34" onclick="Div00_searchbtn_onclick"/>
               <Static id="Static01_00_00_01" taborder="11" text="대출번호 :" left="18" top="107" width="76" height="24" font="16px/normal &quot;Gulim&quot;"/>
               <Combo id="lc_num" taborder="12" text="" left="108" top="107" width="133" height="32" innerdataset="lc_num" codecolumn="lc_num" datacolumn="lc_num" onitemchanged="Div00_lc_num_onitemchanged"/>
-              <Button id="Button00" taborder="13" text="Button00" left="418" top="123" width="44" height="22"/>
             </Layout>
           </Layouts>
         </Div>
@@ -27,15 +26,14 @@
           <Formats>
             <Format id="default">
               <Columns>
-                <Column size="48" band="left"/>
-                <Column size="70"/>
-                <Column size="89"/>
-                <Column size="78"/>
-                <Column size="72"/>
-                <Column size="71"/>
-                <Column size="80"/>
-                <Column size="80"/>
+                <Column size="60"/>
+                <Column size="97"/>
                 <Column size="95"/>
+                <Column size="72"/>
+                <Column size="83"/>
+                <Column size="80"/>
+                <Column size="101"/>
+                <Column size="93"/>
                 <Column size="93"/>
               </Columns>
               <Rows>
@@ -43,41 +41,42 @@
                 <Row size="24"/>
               </Rows>
               <Band id="head">
-                <Cell text="선택"/>
-                <Cell col="1" text="대출번호"/>
-                <Cell col="2" text="대출명"/>
-                <Cell col="3" text="대출상태"/>
-                <Cell col="4" text="회원번호"/>
-                <Cell col="5" text="회원명"/>
-                <Cell col="6" text="사원코드"/>
-                <Cell col="7" text="희망대출액"/>
-                <Cell col="8" text="희망대출일"/>
-                <Cell col="9" text="신청일"/>
+                <Cell text="대출번호"/>
+                <Cell col="1" text="대출명"/>
+                <Cell col="2" text="대출상태"/>
+                <Cell col="3" text="회원번호"/>
+                <Cell col="4" text="회원명"/>
+                <Cell col="5" text="사원코드"/>
+                <Cell col="6" text="희망대출액"/>
+                <Cell col="7" text="희망대출일"/>
+                <Cell col="8" text="신청일"/>
               </Band>
               <Band id="body">
-                <Cell displaytype="checkboxcontrol" edittype="checkbox"/>
-                <Cell col="1" text="bind:lc_num"/>
-                <Cell col="2" text="bind:lp_name"/>
-                <Cell col="3" text="bind:lc_state"/>
-                <Cell col="4" text="bind:mem_code"/>
-                <Cell col="5" text="bind:mem_name"/>
-                <Cell col="6" text="bind:hd_code"/>
-                <Cell col="7" text="bind:la_hamount"/>
-                <Cell col="8" text="bind:la_startdate"/>
-                <Cell col="9" text="bind:la_sysdate"/>
+                <Cell text="bind:lc_num"/>
+                <Cell col="1" text="bind:lp_name"/>
+                <Cell col="2" text="bind:lc_state"/>
+                <Cell col="3" text="bind:mem_code"/>
+                <Cell col="4" text="bind:mem_name"/>
+                <Cell col="5" text="bind:hd_code"/>
+                <Cell col="6" text="bind:la_hamount"/>
+                <Cell col="7" text="bind:la_startdate"/>
+                <Cell col="8" text="bind:la_sysdate"/>
               </Band>
             </Format>
           </Formats>
         </Grid>
-        <Button id="Button00" taborder="2" text="심사시작" left="694" top="598" width="96" height="42"/>
-        <Button id="Button00_00" taborder="3" text="대출승인" left="580" top="598" width="96" height="42"/>
-        <Button id="Button00_00_00" taborder="4" text="승인거절" left="464" top="598" width="96" height="42"/>
+        <Button id="start" taborder="2" text="심사시작" left="694" top="598" width="96" height="42" onclick="start_onclick"/>
+        <Button id="approval" taborder="3" text="대출승인" left="580" top="598" width="96" height="42" onclick="approval_onclick"/>
+        <Button id="rejection" taborder="4" text="승인거절" left="464" top="598" width="96" height="42" onclick="rejection_onclick"/>
+        <Edit id="lc_numv" taborder="5" left="74" top="613" width="105" height="23" visible="false"/>
       </Layout>
     </Layouts>
-    <Script type="xscript5.1"><![CDATA[
+    <Script type="xscript5.1"><![CDATA[include "FrameBase::popupconf.xjs";
 
 this.Loan_screening_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 {
+
+
 	
 	this.getlp_name();
 	this.getsysdate();
@@ -116,10 +115,10 @@ this.getsysdate= function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 	var month = (currDate.getMonth()+1).toString().padLeft(2, "0");
 	var day = currDate.getDate().toString().padLeft(2, "0");
 
-	this.Div00.form.calstartday.set_value(year+month+day);
+	
 	this.Div00.form.calendday.set_value(year+month+day);
-	
-	
+	day = day - 7;
+	this.Div00.form.calstartday.set_value(year+month+day);
 }
 
 this.getscreen= function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
@@ -166,7 +165,30 @@ this.getlcnum= function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 }
 this.Grid00_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
 {
-	this.alert(this.screen.getColumn(this.screen.rowposition,"lc_num"));
+	//this.alert(this.screen.getColumn(this.screen.rowposition,"lc_num"));
+	this.lc_numv.set_value(this.screen.getColumn(this.screen.rowposition,"lc_num"))
+	//this.alert(this.lc_numv.value)
+	var objForm = obj;
+	var objConfig = {
+						popupWidth		: 510,
+						popupHeight		: 320,
+						lc_num : this.lc_numv,
+						rejection : this.rejection_onclick,
+						approval : this.approval_onclick,
+						start : this.start_onclick
+						
+				    }
+	this.gfn_initForm(objForm,objConfig);
+	
+	
+	var oArg = {
+		lc_num : this.lc_numv
+	}
+	
+				
+				
+	this.gfn_showModal("popupModal", oArg, "FrameBase::Loan_detail.xfdl", "popupCallBack", this, 510, 320, true, true, null);
+	
 };
 
 this.Div00_searchbtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
@@ -182,7 +204,6 @@ this.Div00_searchbtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventI
 	name = 'null';
 	//this.alert(name)
 	}
-	this.alert(lc_numv)
 	var id = "urlTest01";
 	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/searchscreen?from_dt="+startdate+"&to_dt="+enddate+"&mem_name="+name+"&lc_state="+state+"&lp_name="+lp_name+"&lc_num="+lc_numv;
 	var reqDs = "";
@@ -196,6 +217,60 @@ this.Div00_searchbtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventI
 	= function (id,code,message)
 	{
 		//alert(id+","+code+","+message);
+		this.test()
+	};
+	
+};
+
+this.stateupdate = function (state,lc_num)
+{
+	var id = "urlTest01";
+	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/stateupdate?lc_state="+state+"&lc_num="+lc_num;
+	var reqDs = "";
+	var respDs = "";
+	var args = "";
+	var callback = "Div00_searchbtn_onclick";
+	this.transaction(id,url,reqDs,respDs,args,callback);
+	
+};
+
+this.start_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var state = '심사중'
+	var lc_num = this.screen.getColumn(this.screen.rowposition,"lc_num")
+	this.stateupdate(state,lc_num)
+};
+
+this.approval_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var state = this.approval.text
+	var lc_num = this.screen.getColumn(this.screen.rowposition,"lc_num")
+	this.stateupdate(state,lc_num)
+};
+
+this.rejection_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	var state = this.rejection.text
+	var lc_num = this.screen.getColumn(this.screen.rowposition,"lc_num")
+	this.stateupdate(state,lc_num)
+};
+
+this.test = function ()
+{
+	var id = "urlTest01";
+	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/test";
+	var reqDs = "";
+	var respDs = ""; //데이터 셋을 response
+	var args = "";
+	var callback = "received";
+	this.transaction(id,url,reqDs,respDs,args,callback);
+	this.received
+	
+	
+	= function (id,code,message)
+	{
+		alert(id+","+code+","+message);
+	
 	};
 	
 };
