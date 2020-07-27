@@ -24,6 +24,8 @@
       <File url="FrameBase\Form_Left.xfdl" checksum="20200724155442" errormsg=""/>
       <File url="Application_Desktop.xadl" checksum="20200724154527" errormsg=""/>
       <File url="Application_Desktop_1.xadl" checksum="20200724154525" errormsg=""/>
+      <File url="Base\Bangking.xfdl" checksum="20200727094135" errormsg=""/>
+      <File url="FrameBase\Bangking.xfdl" checksum="20200727094355" errormsg=""/>
     </Info>
   </GenInfo>
 </root>
