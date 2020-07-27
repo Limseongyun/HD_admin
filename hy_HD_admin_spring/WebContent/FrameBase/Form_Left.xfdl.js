@@ -59,6 +59,11 @@
         	objFrame.set_formurl("FrameBase::"+srtUrl+".xfdl");
 
         };
+        this.Button00_onclick = function(obj,e)
+        {
+        	this.go("Base::Loan.xfdl");
+        };
+
         });
         
         // Regist UI Components Event
