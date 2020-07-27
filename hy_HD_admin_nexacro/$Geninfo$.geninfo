@@ -20,12 +20,14 @@
       <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\Grid.json" checksum="20200527181348" errormsg=""/>
       <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ListView.json" checksum="20200527181350" errormsg=""/>
       <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\DeviceAPI.json" checksum="20200527181348" errormsg=""/>
-      <File url="FrameBase\Account_Product.xfdl" checksum="20200724155013" errormsg=""/>
-      <File url="FrameBase\Form_Left.xfdl" checksum="20200724155442" errormsg=""/>
+      <File url="FrameBase\Account_Product.xfdl" checksum="20200727183803" errormsg=""/>
+      <File url="FrameBase\Form_Left.xfdl" checksum="20200727172747" errormsg=""/>
       <File url="Application_Desktop.xadl" checksum="20200724154527" errormsg=""/>
       <File url="Application_Desktop_1.xadl" checksum="20200724154525" errormsg=""/>
       <File url="Base\Bangking.xfdl" checksum="20200727094135" errormsg=""/>
       <File url="FrameBase\Bangking.xfdl" checksum="20200727094355" errormsg=""/>
+      <File url="Base\Loan.xfdl" checksum="20200727172528" errormsg=""/>
+      <File url="FrameBase\Form_Top.xfdl" checksum="20200727170624" errormsg=""/>
     </Info>
   </GenInfo>
 </root>
