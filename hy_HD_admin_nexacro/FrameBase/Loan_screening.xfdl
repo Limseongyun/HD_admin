@@ -19,6 +19,7 @@
               <Button id="searchbtn" taborder="10" text="검색" left="579" top="67" width="109" height="34" onclick="Div00_searchbtn_onclick"/>
               <Static id="Static01_00_00_01" taborder="11" text="대출번호 :" left="18" top="107" width="76" height="24" font="16px/normal &quot;Gulim&quot;"/>
               <Combo id="lc_num" taborder="12" text="" left="108" top="107" width="133" height="32" innerdataset="lc_num" codecolumn="lc_num" datacolumn="lc_num" onitemchanged="Div00_lc_num_onitemchanged"/>
+              <Button id="Button00" taborder="13" text="Button00" left="289" top="120" width="44" height="22"/>
             </Layout>
           </Layouts>
         </Div>
