@@ -28,4 +28,57 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<delete id="productdel" parameterType="int">
 		delete loan_product where lp_num = #{lp_num}
 	</delete>
-</mapper>
+	
+	
+	<select id="getlpname" resultType="lpvo">
+		select lp_name from loan_product order by 1 desc
+	</select>
+	
+	
+	<select id="getscreen" resultType="lsvo">
+		select lc.lc_num lc_num,lp.lp_name lp_name,lc.lc_state lc_state, m.mem_code mem_code,m.mem_name mem_name, nvl(lc.hd_code,0) hd_code,la.la_hamount la_hamount, la.la_startdate la_startdate, la.la_sysdate la_sysdate
+from loan_check lc, loan_application la, loan_product lp, member m where lc.lc_num=la.lc_num and lc.lp_num = lp.lp_num and lc.mem_code = m.mem_code
+	</select>
+	<select id="getlcnum" resultType="lsvo">
+		select lc_num from loan_check order by 1 desc
+	</select>
+	
+	
+	<select id="searchscreen" resultType="lsvo" parameterType="lssvo">
+	select lc.lc_num lc_num,lp.lp_name lp_name,lc.lc_state lc_state,
+		 m.mem_code mem_code,m.mem_name mem_name, nvl(lc.hd_code,0) hd_code,la.la_hamount la_hamount, TO_CHAR(la.la_startdate,'YY/MM/DD') la_startdate,
+		 TO_CHAR(la.la_sysdate,'YY/MM/DD') la_sysdate
+	from loan_check lc, loan_application la, loan_product lp, member m 
+	where lc.lc_num=la.lc_num and lc.lp_num = lp.lp_num and lc.mem_code = m.mem_code 
+	and la.la_sysdate between #{from_dt} and #{to_dt}
+	<if test="lc_state != '전체'">
+	and lc.lc_state = #{lc_state}
+	</if>
+	<if test="lp_name != '전체'">
+	and lp.lp_name = #{lp_name}
+	</if>
+	<if test="mem_name != 'null'">
+	and m.mem_name = #{mem_name}
+	</if>
+	<if test="lc_num != 0">
+	and lc.lc_num = #{lc_num}
+	</if>
+	</select>
+	
+	
+	<select id="getdetail" parameterType="int" resultType="ldvo">
+	
+		select lc.lc_num, m.mem_email,m.mem_name,m.mem_birth,la.la_hamount,TO_CHAR(la.la_sysdate,'YY/MM/DD') la_sysdate,lp.lp_name,
+			TO_CHAR(la.la_sysdate,'YY/MM/DD') la_startdate, lc.lc_state, la.lr_type, la.la_livingterm, la.la_repayterm
+		from loan_check lc, member m, loan_product lp,loan_application la
+		where lc.lp_num = lp.lp_num and lc.lc_num = la.lc_num and lc.mem_code = m.mem_code and lc.lc_num =#{lc_num} 
+	</select>
+	
+	<update id="stateupdate" parameterType="lssvo">
+		update loan_check set lc_state = #{lc_state} where lc_num = #{lc_num}
+	</update>
+	
+	<select id="filecheck" parameterType="int" resultType="lfvo">
+		select lf_num, lc_num, lf_name,lf_oriname,to_char(lf_sysdate,'YY/MM/DD') lf_sysdate from loan_file where lc_num = #{lc_num}
+	</select>
+</mapper> 
