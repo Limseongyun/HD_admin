@@ -8,16 +8,17 @@
 <%@ page import="javax.servlet.ServletOutputStream"%>
 <%@ page import="javax.servlet.http.HttpServletRequest"%>
 <%@ page import="javax.servlet.http.HttpServletResponse"%>
+<%@ page import="com.oreilly.servlet.MultipartRequest"%>
+<%@ page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
 <%
-String contextRealPath = "C:/ikosmo64/spring/hdspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/project_Dank/";
-String savePath = contextRealPath + "resources/upload/101/";
-String name = "g1.jpg";
+String contextRealPath = request.getSession().getServletContext().getRealPath("/");
+String savePath = contextRealPath + "file";
+String name = request.getParameter("file");
 String filename = new String(name.getBytes("iso8859-1"), "UTF-8");
  byte[] buffer = new byte[1024];
  ServletOutputStream out_stream = null;
  BufferedInputStream in_stream = null;
- File fis = new File(savePath + "/" + filename);
- System.out.print(fis);
+ File fis = new File(savePath + "/" + filename); 
 if(fis.exists()){
  try{
   response.setContentType("utf-8");
