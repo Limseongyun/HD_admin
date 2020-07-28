@@ -17,7 +17,7 @@ import mvc.vo.Shared_SavingVO;
 public class Account_ProductDAO {
 	@Autowired
 	private SqlSessionTemplate ss;
-	
+	//자격요건
 	public List<QualificationVO> qualification_List(){
 		return ss.selectList("account.qua_list");
 	}
@@ -27,7 +27,7 @@ public class Account_ProductDAO {
 	public void qualification_delete(QualificationVO vo) {
 		ss.delete("account.qua_delete",vo);
 	}
-	
+	//예금
 	public List<SavingVO> saving_list(){
 		return ss.selectList("account.sav_list");
 	}
@@ -37,7 +37,7 @@ public class Account_ProductDAO {
 	public void saving_delete(SavingVO vo) {
 		ss.delete("account.sav_delete",vo);
 	}
-	
+	//공유예끔
 	public List<Shared_SavingVO> shared_saving_list(){
 		return ss.selectList("account.shas_list");
 	}
@@ -50,7 +50,7 @@ public class Account_ProductDAO {
 	}
 	
 	
-	
+	//적금
 	public List<Installment_SavingVO> ins_list(){
 		return ss.selectList("account.ins_list");
 	}
@@ -62,7 +62,7 @@ public class Account_ProductDAO {
 	}
 	
 	
-	
+	//공유적금
 	public List<Shared_ChallengeVO> shac_list(){
 		return ss.selectList("account.shac_list");
 	}
@@ -72,4 +72,6 @@ public class Account_ProductDAO {
 	public void shac_delete(Shared_ChallengeVO vo) {
 		ss.delete("account.shac_delete", vo);
 	}
+	
+	//프로덕트
 }
