@@ -85,6 +85,7 @@
     <script src="./nexacro17lib/component/DeviceAPI/DeviceObjs_Runtime.js"></script>
     <script src="./nexacro17lib/component/DeviceAPI/Mobile.js"></script>
     <script src="./nexacro17lib/component/DeviceAPI/BluetoothLE.js"></script>
+<<<<<<< HEAD
     <script src="./nexacro17lib/component/DeviceAPI/TCPClientSocket.js"></script>
 	
     <script src="./environment.xml.js"></script>
@@ -114,4 +115,37 @@
 		}
 	</script>
 </body>
+=======
+    <script src="./nexacro17lib/component/DeviceAPI/TCPClientSocket.js"></script>
+	
+    <script src="./environment.xml.js"></script>
+     
+	<title></title>
+</head>
+<body style="margin:0;border:none;-ms-touch-action:none;" onload="oninitframework()">
+	<script>
+		function oninitframework()
+		{
+			var screeninfo = [
+
+				{"id":"screen00","type":"desktop","themeid":"theme::default","xadl":"Application_Desktop_1.xadl.js"},
+				{"id":"Desktop_screen","type":"desktop","themeid":"theme::default","xadl":"Application_Desktop.xadl.js"}
+
+			];
+
+			nexacro._initHTMLSysEvent(window, document);			
+			nexacro._initEnvironment(screeninfo);
+            nexacro._prepareManagerFrame(onloadframework);
+		}
+		function onloadframework()
+		{
+			nexacro._loadADL();
+		}
+		function onfinalframework()
+		{
+			
+		}
+	</script>
+</body>
+>>>>>>> branch 'testmaster2' of https://github.com/Limseongyun/HD_admin.git
 </html>

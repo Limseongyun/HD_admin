@@ -11,5 +11,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias type="mvc.vo.Loan_detailVO" alias="ldvo"/>
 		<typeAlias type="mvc.vo.Loan_FileVO" alias="lfvo"/>
 		
+		<typeAlias type="mvc.vo.EmployeeVO" alias="empvo"/>
+		<typeAlias type="mvc.vo.QualificationVO" alias="quavo"/>
+  		<typeAlias type="mvc.vo.SavingVO" alias="savvo"/>
+  		<typeAlias type="mvc.vo.Shared_SavingVO" alias="shasvo"/>
+  		<typeAlias type="mvc.vo.Installment_SavingVO" alias="insvo"/>
+  		<typeAlias type="mvc.vo.Shared_ChallengeVO" alias="shacvo"/>
+  		<typeAlias type="mvc.vo.ProductVO" alias="provo"/>
 	</typeAliases>
 </configuration>
