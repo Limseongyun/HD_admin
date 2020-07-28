@@ -35,6 +35,12 @@
             obj = new Dataset("lc_num", this);
             obj._setContents("<ColumnInfo><Column id=\"lc_num\" type=\"INT\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
+
+
+            obj = new FileDownTransfer("FileDownTransfer00", this);
+            obj.set_downloadfilename("si.jpg");
+            obj.set_url("C:\\ikosmo64\\spring\\hdspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\project_Dank\\resources\\upload\\101\\g1.jpg");
+            this.addChild(obj.name, obj);
             
             // UI Components Initialize
             obj = new Div("Div00","21","20","777","160",null,null,null,null,null,null,this);
@@ -123,6 +129,16 @@
             obj.set_codecolumn("lc_num");
             obj.set_datacolumn("lc_num");
             obj.set_text("");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new Button("Button00","368","115","135","23",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("13");
+            obj.set_text("Button00");
+            this.Div00.addChild(obj.name, obj);
+
+            obj = new FileDownload("FileDownload00","532","118","105","15",null,null,null,null,null,null,this.Div00.form);
+            obj.set_taborder("14");
+            obj.set_text("FileDownload00");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Grid("Grid00","21","200","777","388",null,null,null,null,null,null,this);
@@ -316,7 +332,7 @@
         	= function (id,code,message)
         	{
         		//alert(id+","+code+","+message);
-        		this.test()
+
         	};
 
         };
@@ -356,8 +372,11 @@
 
         this.test = function ()
         {
+        	var filename = "g1.jpg";
+        	var filedir = "resources\\upload\\101"
+
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/test";
+        	var url = "Service::filedown.jpg"
         	var reqDs = "";
         	var respDs = ""; //데이터 셋을 response
         	var args = "";
@@ -375,6 +394,28 @@
         };
 
 
+        this.Div00_Button00_onclick = function(obj,e)
+        {
+        	//this.FileDownTransfer00.download()
+        	this.test()
+        };
+
+
+
+        this.FileDownTransfer00_onerror = function(obj,e)
+        {
+        	this.alert(e.errortype)
+        	this.alert(e.errormsg)
+        	this.alert(e.statuscode)
+        	this.alert("fail")
+        };
+
+        this.FileDownTransfer00_onsuccess= function(obj,e)
+        {
+        	this.alert("sueccess")
+        };
+
+
         });
         
         // Regist UI Components Event
@@ -386,10 +427,14 @@
             this.Div00.form.lp_name.addEventHandler("onitemchanged",this.Div00_lp_name_onitemchanged,this);
             this.Div00.form.searchbtn.addEventHandler("onclick",this.Div00_searchbtn_onclick,this);
             this.Div00.form.lc_num.addEventHandler("onitemchanged",this.Div00_lc_num_onitemchanged,this);
+            this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
+            this.Div00.form.FileDownload00.addEventHandler("onclick",this.Div00_FileDownload00_onclick,this);
             this.Grid00.addEventHandler("oncelldblclick",this.Grid00_oncelldblclick,this);
             this.start.addEventHandler("onclick",this.start_onclick,this);
             this.approval.addEventHandler("onclick",this.approval_onclick,this);
             this.rejection.addEventHandler("onclick",this.rejection_onclick,this);
+            this.FileDownTransfer00.addEventHandler("onerror",this.FileDownTransfer00_onerror,this);
+            this.FileDownTransfer00.addEventHandler("onsuccess",this.FileDownTransfer00_onsuccess,this);
         };
 
         this.loadIncludeScript("Loan_screening.xfdl");

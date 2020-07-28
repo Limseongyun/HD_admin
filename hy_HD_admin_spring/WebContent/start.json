@@ -97,8 +97,8 @@
         ],
         "screen" :
         [    
-        {"id":"Desktop_screen","type":"desktop","themeid":"theme::default"},
-        {"id":"screen00","type":"desktop","themeid":"theme::default"}
+        {"id":"Desktop_screen","type":"desktop","filesecurelevel":"all","themeid":"theme::default"},
+        {"id":"screen00","type":"desktop","filesecurelevel":"all","themeid":"theme::default"}
         ],
         "xadl" :
         [
