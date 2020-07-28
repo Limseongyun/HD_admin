@@ -799,10 +799,6 @@ this.Tab00_Product_tab_Radio00_onitemchanged = function(obj:nexacro.Radio,e:nexa
 	//this.alert(radiogaga)
 };
 
-this.m = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
-{
-	
-};
 ]]></Script>
     <Objects>
       <Dataset id="QualificationList">
