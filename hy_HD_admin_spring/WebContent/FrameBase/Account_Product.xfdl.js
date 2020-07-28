@@ -13,9 +13,7 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
-
                 this._setFormPosition(1250,700);
-
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -93,6 +91,8 @@
             obj = new Combo("del_pro_codev","334","414","122","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("6");
             obj.set_innerdataset("ProductList");
+            obj.set_codecolumn("pro_code");
+            obj.set_datacolumn("pro_code");
             obj.set_text("Combo00");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
@@ -101,16 +101,8 @@
             obj.set_text("프로덕트조회");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Combo("ins_codev","185","103","161","45",null,null,null,null,null,null,this.Tab00.Product_tab.form);
-            obj.set_taborder("8");
-            obj.set_innerdataset("Installment_Saving");
-            obj.set_codecolumn("ins_code");
-            obj.set_datacolumn("ins_code");
-            obj.set_text("Combo01");
-            this.Tab00.Product_tab.addChild(obj.name, obj);
-
             obj = new Combo("sav_codev","182","186","168","49",null,null,null,null,null,null,this.Tab00.Product_tab.form);
-            obj.set_taborder("9");
+            obj.set_taborder("8");
             obj.set_innerdataset("SavingList");
             obj.set_codecolumn("sav_code");
             obj.set_datacolumn("sav_code");
@@ -118,7 +110,7 @@
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
             obj = new Radio("product_radio","369","92","109","153",null,null,null,null,null,null,this.Tab00.Product_tab.form);
-            obj.set_taborder("10");
+            obj.set_taborder("9");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             var Tab00_Product_tab_form_product_radio_innerdataset = new nexacro.NormalDataset("Tab00_Product_tab_form_product_radio_innerdataset", obj);
@@ -127,8 +119,15 @@
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
             obj = new Button("Button02","477","412","88","48",null,null,null,null,null,null,this.Tab00.Product_tab.form);
-            obj.set_taborder("11");
+            obj.set_taborder("10");
             obj.set_text("제거");
+            this.Tab00.Product_tab.addChild(obj.name, obj);
+
+            obj = new Combo("ins_codev","185","115","164","45",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj.set_taborder("11");
+            obj.set_innerdataset("Installment_Saving");
+            obj.set_codecolumn("ins_code");
+            obj.set_datacolumn("ins_code");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
             obj = new Tabpage("Qualification_tab",this.Tab00);
@@ -631,16 +630,12 @@
 
             // Layout Functions
             //-- Default Layout : this
-
             obj = new Layout("default","",1250,700,this,function(p){});
-
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             
             // BindItem Information
-            obj = new BindItem("item0","Tab00.Product_tab.form.ins_codev","value","Installment_Saving","ins_code");
-            this.addChild(obj.name, obj);
-            obj.bind();
+
         };
         
         this.loadPreloadList = function()
@@ -749,7 +744,7 @@
         {
         	if(this.Tab00.tabindex == 0){
         		//alert('tab 인덱스 0')
-
+        		this.Tab00_Product_tab_Button01_onclick()
         		this.Tab00.Product_tab.form.ins_codev.set_enable(false)
         		this.Tab00.Product_tab.form.sav_codev.set_enable(false)
         		var radiogaga = this.Tab00.Product_tab.form.product_radio.value
@@ -1052,13 +1047,79 @@
         	if(radiogaga==1){
         		this.Tab00.Product_tab.form.ins_codev.set_enable(true)
         		this.Tab00.Product_tab.form.sav_codev.set_enable(false)
+        		this.Tab00.Product_tab.form.sav_codev.set_value('-1')
         	}else if(radiogaga==2){
-        		this.Tab00.Product_tab.form.ins_codev.set_enable(false)
         		this.Tab00.Product_tab.form.sav_codev.set_enable(true)
+        		this.Tab00.Product_tab.form.ins_codev.set_enable(false)
+        		this.Tab00.Product_tab.form.ins_codev.set_value('-1')
+
         	}
         	//this.alert(radiogaga)
         };
 
+
+
+
+        //프로덕트 리스트
+        this.Tab00_Product_tab_Button01_onclick = function(obj,e)
+        {
+        	var id="product_list";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/product_list";
+        	var reqDs = "";
+        	var respDs="ProductList=ar";
+        	var args ="";
+        	var callback ="received";
+        	this.transaction(id,url,reqDs,respDs,args,callback);
+        	this.received=function(id,code,message)
+        	{
+        		//alert(id+","+code+","+message);
+        	};
+        };
+        //프로덕트 삭제
+        this.Tab00_Product_tab_Button02_onclick = function(obj,e)
+        {
+        	var del_pro_codev = this.Tab00.Product_tab.form.del_pro_codev.value
+        	var id="product_delete";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/product_delete?pro_code="+del_pro_codev;
+        	var reqDs = "";
+        	var respDs="";
+        	var args ="";
+        	var callback ="received";
+        	this.transaction(id,url,reqDs,respDs,args,callback);
+        	this.received=function(id,code,message)
+        	{
+        		this.Tab00_Product_tab_Button01_onclick()
+        	};
+
+        };
+        //프로덕트 추가
+        this.Tab00_Product_tab_Button00_onclick = function(obj,e)
+        {
+
+
+        	//var pro_codev = this.Tab00.Product_tab.form.pro_codev.value
+        	var sav_codev = this.Tab00.Product_tab.form.sav_codev.value
+        	var ins_codev = this.Tab00.Product_tab.form.ins_codev.value
+
+        	//this.Tab00.Product_tab.form.pro_codev.set_value('')
+        	//this.Tab00.Product_tab.form.sav_codev.set_value('')
+        	//this.Tab00.Product_tab.form.ins_codev.set_value('')
+        	this.alert(sav_codev+","+ins_codev)
+
+
+        	var id="product_insert";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/product_insert?ins_code="+ins_codev+"&sav_code="+sav_codev;
+        	var reqDs = "";
+        	var respDs="";
+        	var args ="";
+        	var callback ="received";
+        	this.transaction(id,url,reqDs,respDs,args,callback);
+        	this.received=function(id,code,message)
+        	{
+        		this.Tab00_Product_tab_Button01_onclick()
+        	};
+
+        };
 
         });
         
@@ -1071,7 +1132,10 @@
             this.Tab00.Product_tab.form.pro_codev.addEventHandler("onchanged",this.Tab00_Product_tab_pro_codev_onchanged,this);
             this.Tab00.Product_tab.form.Static00_00.addEventHandler("onclick",this.Tab00_Product_Static00_onclick,this);
             this.Tab00.Product_tab.form.Static00_01.addEventHandler("onclick",this.Tab00_Product_Static00_onclick,this);
+            this.Tab00.Product_tab.form.Button00.addEventHandler("onclick",this.Tab00_Product_tab_Button00_onclick,this);
+            this.Tab00.Product_tab.form.Button01.addEventHandler("onclick",this.Tab00_Product_tab_Button01_onclick,this);
             this.Tab00.Product_tab.form.product_radio.addEventHandler("onitemchanged",this.Tab00_Product_tab_Radio00_onitemchanged,this);
+            this.Tab00.Product_tab.form.Button02.addEventHandler("onclick",this.Tab00_Product_tab_Button02_onclick,this);
             this.Tab00.Qualification_tab.form.qua_div.form.qua_add_btn.addEventHandler("onclick",this.qua_div_qua_insert_onclick,this);
             this.Tab00.Qualification_tab.form.qua_div.form.qua_update_btn.addEventHandler("onclick",this.Tab00_Qualification_qua_div_qua_update_btn_onclick,this);
             this.Tab00.Qualification_tab.form.qua_div.form.Button01_00.addEventHandler("onclick",this.qua_div_qua_delete_onclick,this);

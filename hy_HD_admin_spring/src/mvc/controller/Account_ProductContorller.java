@@ -12,6 +12,7 @@ import com.nexacro17.xapi.data.DataTypes;
 
 import mvc.dao.Account_ProductDAO;
 import mvc.vo.Installment_SavingVO;
+import mvc.vo.ProductVO;
 import mvc.vo.QualificationVO;
 import mvc.vo.SavingVO;
 import mvc.vo.Shared_ChallengeVO;
@@ -22,7 +23,7 @@ import mvc.vo.Shared_SavingVO;
 public class Account_ProductContorller {
 	@Autowired
 	private Account_ProductDAO accountdao;
-	
+	//자격요건 리스트
 	@RequestMapping("/qualification_list")
 	public ModelAndView Qualification_List() {
 		ModelAndView mav = new ModelAndView("all");
@@ -56,7 +57,7 @@ public class Account_ProductContorller {
 		
 		return mav;
 	}
-	
+	//자격요견 추가
 	@RequestMapping("/qualification_insert")
 	public ModelAndView qualification_insert(QualificationVO vo) {
 		ModelAndView mav = new ModelAndView("redirect:/");
@@ -64,7 +65,7 @@ public class Account_ProductContorller {
 		accountdao.qualification_insert(vo);
 		return mav;
 	}
-	
+	//자격요건 삭제
 	@RequestMapping("/qualification_delete")
 	public ModelAndView qualification_delete(QualificationVO vo) {
 		ModelAndView mav = new ModelAndView("redirect:/");
@@ -72,7 +73,7 @@ public class Account_ProductContorller {
 		accountdao.qualification_delete(vo);
 		return mav;
 	}
-	
+	//예금 리스트
 	@RequestMapping("/saving_list")
 	public ModelAndView saving_list() {
 		ModelAndView mav = new ModelAndView("all");
@@ -97,6 +98,7 @@ public class Account_ProductContorller {
 		mav.addObject("ds",ds);
 		return mav;
 	}
+	//예금 추가
 	@RequestMapping("/saving_insert")
 	public ModelAndView saving_insert(SavingVO vo) {
 		ModelAndView mav = new ModelAndView();
@@ -104,14 +106,14 @@ public class Account_ProductContorller {
 		accountdao.saving_insert(vo);
 		return mav;
 	}
-	
+	//예금삭제
 	@RequestMapping("/saving_delete")
 	public ModelAndView saving_delete(SavingVO vo) {
 		ModelAndView mav= new ModelAndView();
 		accountdao.saving_delete(vo);
 		return mav;
 	}
-	
+	//공유예금 리스트
 	@RequestMapping("/shared_saving_list")
 	public ModelAndView shared_saving_list() {
 		ModelAndView mav = new ModelAndView("all");
@@ -132,6 +134,7 @@ public class Account_ProductContorller {
 		mav.addObject("ds",ds);
 		return mav;
 	}
+	//공유예금 추가
 	@RequestMapping("/shared_saving_insert")
 	public ModelAndView shared_saving_insert(Shared_SavingVO vo) {
 		ModelAndView mav = new ModelAndView("redirect:/");
@@ -140,7 +143,7 @@ public class Account_ProductContorller {
 		
 		return mav;
 	}
-	
+	//공유예금 삭제
 	@RequestMapping("/shared_saving_delete")
 	public ModelAndView shared_saving_delete(Shared_SavingVO vo) {
 		ModelAndView mav = new ModelAndView();
@@ -148,7 +151,7 @@ public class Account_ProductContorller {
 		return mav;
 	}
 
-
+	//적금 리스트
 	@RequestMapping("/installment_saving_list")
 	public ModelAndView ins_list() {
 		ModelAndView mav = new ModelAndView("all");
@@ -180,12 +183,14 @@ public class Account_ProductContorller {
 		mav.addObject("ds",ds);
 		return mav;
 	}
+	//적금 추가
 	@RequestMapping("/installment_saving_insert")
 	public ModelAndView ins_insert(Installment_SavingVO vo) {
 		ModelAndView mav = new ModelAndView();
 		accountdao.ins_insert(vo);
 		return mav;
 	}
+	//적금 삭제
 	@RequestMapping("/installment_saving_delete")
 	public ModelAndView ins_delete(Installment_SavingVO vo) {
 		ModelAndView mav = new ModelAndView();
@@ -193,7 +198,7 @@ public class Account_ProductContorller {
 		return mav;
 	}
 	
-	
+	//공유적금 리스트
 	@RequestMapping("/shared_challenge_list")
 	public ModelAndView shac_list() {
 		ModelAndView mav = new ModelAndView("all");
@@ -211,16 +216,56 @@ public class Account_ProductContorller {
 		mav.addObject("ds", ds);
 		return mav;
 	}
+	//공유적금 추가
 	@RequestMapping("/shared_challenge_insert")
 	public ModelAndView shac_insert(Shared_ChallengeVO vo) {
 		ModelAndView mav = new ModelAndView();
 		accountdao.shac_insert(vo);
 		return mav;
 	}
+	//공유적금 삭제
 	@RequestMapping("/shared_challenge_delete")
 	public ModelAndView shac_delete(Shared_ChallengeVO vo) {
 		ModelAndView mav = new ModelAndView();
 		accountdao.shac_delete(vo);
 		return mav;
+	}
+	
+	//프로덕트 리스트
+	@RequestMapping("/product_list")
+	public ModelAndView pro_list() {
+		ModelAndView mav = new ModelAndView("all");
+		DataSet ds =new  DataSet("ar");
+		ds.addColumn("pro_code",DataTypes.INT,10);
+		ds.addColumn("ins_code",DataTypes.INT,10);
+		ds.addColumn("sav_code",DataTypes.INT,10);
+		List<ProductVO> pro_list = accountdao.pro_list();
+		for (ProductVO e : pro_list) {
+			int row = ds.newRow();
+			ds.set(row, "pro_code", e.getPro_code());
+			ds.set(row, "ins_code", e.getIns_code());
+			ds.set(row, "sav_code", e.getSav_code());
+		}
+		
+		mav.addObject("ds",ds);
+		
+		return mav;
+	}
+	
+	//프로덕트 추가
+	@RequestMapping("/product_insert")
+	public ModelAndView pro_insert(ProductVO vo) {
+		ModelAndView mav = new ModelAndView();
+		accountdao.pro_insert(vo);
+		return mav;
+	}
+	//프로덕트 삭제
+	@RequestMapping("/product_delete")
+	public ModelAndView pro_delete(ProductVO vo) {
+		ModelAndView mav = new ModelAndView();
+		accountdao.pro_delete(vo);
+		
+		return mav;
+		
 	}
 }

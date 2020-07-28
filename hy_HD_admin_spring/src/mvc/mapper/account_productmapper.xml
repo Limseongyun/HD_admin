@@ -95,8 +95,37 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	  
 	  
 <!-- 	프로덕트 -->
+
 	<select id="pro_list" resultType="provo">
-	
+	select pro_code,ins_code,sav_code from product
 	</select>
+	
+	<insert id="pro_insert" parameterType="provo">
+	insert into product values(product_seq.nextval
+	<choose>
+	<when test="ins_code=='-1'">
+	,null
+	</when>
+	<otherwise>
+	,#{ins_code}
+	</otherwise>
+	</choose>
+	
+	<choose>
+	<when test="sav_code=='-1'">
+	,null)
+	</when>
+	<otherwise>
+	,#{sav_code})
+	</otherwise>
+	</choose>
+	
+	</insert>
+	  
+	  
+  <delete id="pro_delete" parameterType="provo">
+  delete from product where pro_code=#{pro_code}
+  </delete>
+	  
 	  
   </mapper>

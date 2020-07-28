@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import mvc.vo.Installment_SavingVO;
+import mvc.vo.ProductVO;
 import mvc.vo.QualificationVO;
 import mvc.vo.SavingVO;
 import mvc.vo.Shared_ChallengeVO;
@@ -74,4 +75,13 @@ public class Account_ProductDAO {
 	}
 	
 	//ÇÁ·Î´öÆ®
+	public List<ProductVO> pro_list(){
+		return ss.selectList("account.pro_list");
+	}
+	public void pro_insert(ProductVO vo) {
+		ss.insert("account.pro_insert",vo);
+	}
+	public void pro_delete(ProductVO vo) {
+		ss.delete("account.pro_delete",vo);
+	}
 }

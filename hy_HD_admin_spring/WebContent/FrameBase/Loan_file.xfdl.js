@@ -67,7 +67,7 @@
         this.file = function ()
         {
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/filecheck?lc_num="+lc_num;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/filecheck?lc_num="+lc_num;
         	var reqDs = "";
         	var respDs = " filecheck=ar"; //데이터 셋을 response
         	var args = "";
@@ -103,7 +103,7 @@
 
 
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/filedown?fileDir="+fileDir+"&fileName="+fileName;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/filedown?fileDir="+fileDir+"&fileName="+fileName;
         	var reqDs = "";
         	var respDs = ""; //데이터 셋을 response
         	var args = "";
