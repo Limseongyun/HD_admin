@@ -59,6 +59,7 @@
             <Col id="menu_id">5</Col>
             <Col id="menu_name">대출심사</Col>
             <Col id="menu_level">1</Col>
+            <Col id="form_url">Loan_screening</Col>
           </Row>
         </Rows>
       </Dataset>

@@ -13,7 +13,9 @@
             this.set_titletext("New Form");
             if (Form == this.constructor)
             {
+
                 this._setFormPosition(1250,700);
+
             }
             
             // Object(Dataset, ExcelExportObject) Initialize
@@ -629,7 +631,9 @@
 
             // Layout Functions
             //-- Default Layout : this
+
             obj = new Layout("default","",1250,700,this,function(p){});
+
             obj.set_mobileorientation("landscape");
             this.addLayout(obj.name, obj);
             

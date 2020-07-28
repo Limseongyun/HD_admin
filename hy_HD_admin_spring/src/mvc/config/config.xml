@@ -6,7 +6,10 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="mvc.vo.SearchVO" alias="searchvo"/>
 		<typeAlias type="mvc.vo.Loan_productVO" alias="lpvo"/>
-		
+		<typeAlias type="mvc.vo.Loan_screenVO" alias="lsvo"/>
+		<typeAlias type="mvc.vo.Loan_screensearchVO" alias="lssvo"/>
+		<typeAlias type="mvc.vo.Loan_detailVO" alias="ldvo"/>
+		<typeAlias type="mvc.vo.Loan_FileVO" alias="lfvo"/>
 		
 		<typeAlias type="mvc.vo.EmployeeVO" alias="empvo"/>
 		<typeAlias type="mvc.vo.QualificationVO" alias="quavo"/>
