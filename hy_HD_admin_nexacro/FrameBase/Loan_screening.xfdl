@@ -19,6 +19,8 @@
               <Button id="searchbtn" taborder="10" text="검색" left="579" top="67" width="109" height="34" onclick="Div00_searchbtn_onclick"/>
               <Static id="Static01_00_00_01" taborder="11" text="대출번호 :" left="18" top="107" width="76" height="24" font="16px/normal &quot;Gulim&quot;"/>
               <Combo id="lc_num" taborder="12" text="" left="108" top="107" width="133" height="32" innerdataset="lc_num" codecolumn="lc_num" datacolumn="lc_num" onitemchanged="Div00_lc_num_onitemchanged"/>
+              <Button id="Button00" taborder="13" text="Button00" left="368" top="115" width="135" height="23" onclick="Div00_Button00_onclick"/>
+              <FileDownload id="FileDownload00" taborder="14" text="FileDownload00" left="532" top="118" width="105" height="15" onclick="Div00_FileDownload00_onclick"/>
             </Layout>
           </Layouts>
         </Div>
@@ -217,7 +219,9 @@ this.Div00_searchbtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventI
 	= function (id,code,message)
 	{
 		//alert(id+","+code+","+message);
+
 		this.test()
+
 	};
 	
 };
@@ -225,7 +229,9 @@ this.Div00_searchbtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventI
 this.stateupdate = function (state,lc_num)
 {
 	var id = "urlTest01";
-	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/stateupdate?lc_state="+state+"&lc_num="+lc_num;
+
+	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/stateupdate?lc_state="+state+"&lc_num="+lc_num;
+
 	var reqDs = "";
 	var respDs = "";
 	var args = "";
@@ -257,8 +263,13 @@ this.rejection_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 
 this.test = function ()
 {
+
+	var filename = "g1.jpg";
+	var filedir = "resources\\upload\\101"
+	
 	var id = "urlTest01";
-	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/test";
+	var url = "Service::filedown.jpg"
+
 	var reqDs = "";
 	var respDs = ""; //데이터 셋을 response
 	var args = "";
@@ -274,6 +285,30 @@ this.test = function ()
 	};
 	
 };
+
+
+
+this.Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//this.FileDownTransfer00.download()
+	this.test()
+};
+
+
+
+this.FileDownTransfer00_onerror = function(obj:nexacro.FileDownTransfer,e:nexacro.FileDownTransferErrorEventInfo)
+{
+	this.alert(e.errortype)
+	this.alert(e.errormsg)
+	this.alert(e.statuscode)
+	this.alert("fail")
+};
+
+this.FileDownTransfer00_onsuccess= function(obj:nexacro.FileDownTransfer,e:nexacro.FileDownTransferEventInfo)
+{
+	this.alert("sueccess")
+};
+
 
 ]]></Script>
     <Objects>
@@ -335,6 +370,7 @@ this.test = function ()
           <Column id="lc_num" type="INT" size="256"/>
         </ColumnInfo>
       </Dataset>
+      <FileDownTransfer id="FileDownTransfer00" downloadfilename="si.jpg" url="C:\ikosmo64\spring\hdspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp1\wtpwebapps\project_Dank\resources\upload\101\g1.jpg" onerror="FileDownTransfer00_onerror" onsuccess="FileDownTransfer00_onsuccess"/>
     </Objects>
   </Form>
 </FDL>
