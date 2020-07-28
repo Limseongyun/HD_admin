@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "Resource",
   "version": "17.1.1.200",
   "description": "nexacro platform 17 Unified Framework Library",
@@ -8,4 +8,3 @@
     "resource": [ "images/waitimage.gif" ]
   }
 }
-//# sourceURL=Resource.json
