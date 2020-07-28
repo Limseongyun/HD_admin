@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="Form_Top" width="1024" height="50" titletext="Form_Top">
+  <Form id="Form_Top" width="1024" height="50" titletext="Form_Top" onload="myload">
     <Layouts>
       <Layout width="1024" height="50" screenid="Desktop_screen">
-        <Menu id="Menu00" taborder="0" left="200" top="0" width="824" height="50" onmenuclick="Menu00_onmenuclick" innerdataset="Dataset0" captioncolumn="menu_name" idcolumn="menu_id" levelcolumn="menu_level" background="#1369D8"/>
+        <Menu id="Menu00" taborder="0" left="200" top="0" width="310" height="50" onmenuclick="Menu00_onmenuclick" innerdataset="Dataset0" captioncolumn="menu_name" idcolumn="menu_id" levelcolumn="menu_level" background="#1369D8"/>
         <Div id="Div00" taborder="1" left="0" top="0" width="200" height="50" background="#1572E8">
           <Layouts>
             <Layout>
@@ -11,19 +11,58 @@
             </Layout>
           </Layouts>
         </Div>
+        <Button id="Button00" taborder="2" text="로그아웃" left="905" top="7" width="97" height="35" onclick="Button00_onclick"/>
+        <Edit id="who" taborder="3" left="646" top="7" width="219" height="33" readonly="true"/>
       </Layout>
     </Layouts>
-    <Script type="xscript5.1"><![CDATA[
-this.Menu00_onmenuclick = function(obj:nexacro.Menu,e:nexacro.MenuClickEventInfo)
-{
+    <Script type="xscript5.1"><![CDATA[//첫화면 로딩이 되는 스크립트
+this.myload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo){
+	var id="loginingo";
+	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logincheck";
+	var reqDs = "";
+	var respDs=" login=ar";//대이터 셋을 response
+	var args = "";
+	var callback ="received";
+	this.transaction(id,url,reqDs,respDs,args,callback);
+	this.received=function(id,code,message)
+	{
+		//alert(id+","+code+","+message);
+		this.who.set_value(this.login.getColumn(0,"check")+" 환영합니다")
+		//this.alert('ss')
+	};
 	
-};
-
-this.Div00_ImageViewer00_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+}
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
+/*
+		var id="logout";
+		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logout";
+		var reqDs = "";
+		var respDs="";//
+		var args ="";
+		var callback ="received";
+		this.transaction(id,url,reqDs,respDs,args,callback);
+		this.received=function(id,code,message)
+		{
+			//alert(id+","+code+","+message);
+		};
+		*/
+	//this.go("Base::Loan.xfdl");
+	//this.go("Base::Loan.xfdl");
+	location.reload()
+	//this.alert(sib)
 	
+	
+	
+	//nexacro.getApplication().get
 };
 ]]></Script>
-    <Objects/>
+    <Objects>
+      <Dataset id="login">
+        <ColumnInfo>
+          <Column id="check" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
   </Form>
 </FDL>
