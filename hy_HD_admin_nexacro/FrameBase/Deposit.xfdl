@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Deposit" width="1280" height="720" titletext="New Form">
+    <Layouts>
+      <Layout height="720" mobileorientation="landscape" width="1280">
+        <Div id="Div00" taborder="0" text="Div00" left="246" top="127" width="969" height="527" border="2px solid">
+          <Layouts>
+            <Layout>
+              <Edit id="Edit00" taborder="0" left="175" top="70" width="205" height="66"/>
+              <Static id="Static00" taborder="1" text="계좌번호" left="24" top="72" width="130" height="65" font="24px/normal &quot;Gulim&quot;"/>
+              <Button id="Button00" taborder="2" text="계좌조회" left="410" top="74" width="134" height="66"/>
+              <Div id="Div00" taborder="3" text="Div00" left="32" top="341" width="860" height="175" border="3px dotted">
+                <Layouts>
+                  <Layout>
+                    <Button id="Button00" taborder="0" text="입금하기" left="361" top="12" width="116" height="46"/>
+                    <Edit id="Edit00" taborder="1" left="97" top="12" width="224" height="50"/>
+                    <Static id="Static00" taborder="2" text="입금액" left="7" top="10" width="83" height="47" font="26px/normal &quot;Gulim&quot;"/>
+                    <Static id="Static01" taborder="3" text="출금액" left="2" top="104" width="88" height="56" font="26px/normal &quot;Gulim&quot;"/>
+                    <Edit id="Edit01" taborder="4" left="102" top="114" width="222" height="41"/>
+                    <Button id="Button01" taborder="5" text="출금하기" left="355" top="107" width="130" height="45"/>
+                  </Layout>
+                </Layouts>
+              </Div>
+              <Grid id="Grid00" taborder="4" left="37" top="177" width="853" height="135"/>
+            </Layout>
+          </Layouts>
+        </Div>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="Account">
+        <ColumnInfo>
+          <Column id="계좌번호" type="STRING" size="256"/>
+          <Column id="이름" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+  </Form>
+</FDL>
