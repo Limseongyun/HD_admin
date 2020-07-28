@@ -1,0 +1,232 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="filetransupdown" width="850" height="530" titletext="New Form" onload="filetransupdown_onload">
+    <Layouts>
+      <Layout height="530" mobileorientation="landscape" width="850">
+        <Button id="btnAdd" taborder="0" text="추가" left="28" top="31" width="100" height="31" onclick="btnAdd_onclick"/>
+        <Button id="btnDel" taborder="1" text="삭제" left="132" top="31" width="100" height="31" onclick="btnDel_onclick"/>
+        <Grid id="Grid00" taborder="2" top="71" height="201" binddataset="dsUpload" ondrop="Grid00_ondrop" autofittype="col" nodatatext="파일을 드래그하여 첨부 할 수 있습니다." oncelldblclick="Grid00_oncelldblclick" right="31" left="28">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="152"/>
+                <Column size="320"/>
+                <Column size="58"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="FILE_NAME"/>
+                <Cell col="1" text="FILE_URL"/>
+                <Cell col="2" text="SIZE"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:FILE_NAME" displaytype="normal" edittype="none" treelevel="bind:DEPTH"/>
+                <Cell col="1" text="bind:FILE_URL"/>
+                <Cell col="2" treelevel="bind:DEPTH" text="bind:FiLE_SIZE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Grid id="Grid01" taborder="3" top="325" height="201" binddataset="dsDownload" autofittype="col" nodatatext="폴더를 지정하여 파일 리스트를 불러옵니다." oncelldblclick="Grid01_oncelldblclick" right="31" left="28">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="152"/>
+                <Column size="320"/>
+                <Column size="58"/>
+              </Columns>
+              <Rows>
+                <Row size="24" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell text="FILE_NAME"/>
+                <Cell col="1" text="FILE_URL"/>
+                <Cell col="2" text="SIZE"/>
+              </Band>
+              <Band id="body">
+                <Cell text="bind:FILE_NAME" displaytype="normal" edittype="none" treelevel="bind:DEPTH"/>
+                <Cell col="1" text="bind:FILE_URL"/>
+                <Cell col="2" treelevel="bind:DEPTH" text="bind:FiLE_SIZE"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Button id="btnSearch" taborder="4" text="리스트 불러오기" left="28" top="287" width="100" height="31" onclick="btnSearch_onclick"/>
+        <Button id="btnSave" taborder="5" text="업로드" top="31" width="100" height="31" onclick="btnSave_onclick" right="31"/>
+        <ProgressBar id="ProgressBar00" taborder="6" max="100" min="0" top="31" width="200" height="31" right="135"/>
+        <Button id="btnDonwload" taborder="7" text="저장" top="287" width="100" height="31" onclick="btnDonwload_onclick" right="31"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="dsUpload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_URL" type="STRING" size="256"/>
+          <Column id="FILE_ID" type="STRING" size="256"/>
+          <Column id="DEPTH" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+          <Column id="FiLE_SIZE" type="STRING" size="256"/>
+          <Column id="FILE_PATH" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="dsDownload">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="FILE_NAME" type="STRING" size="256"/>
+          <Column id="FILE_URL" type="STRING" size="256"/>
+          <Column id="DEPTH" type="STRING" size="256"/>
+          <Column id="STATUS" type="STRING" size="256"/>
+          <Column id="FiLE_SIZE" type="STRING" size="256"/>
+          <Column id="IMAGE_PATH" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <FileDownTransfer id="fileDownTrans"/>
+      <FileUpTransfer id="fileUpTrans"/>
+      <FileDialog id="fileDialog"/>
+    </Objects>
+    <Script type="xscript5.1"><![CDATA[/**
+*  @MenuPath    techtip > filetransupdown
+*  techtip 		여러개의 파일을 동시에 업로드하고 다운로드 합니다.
+*  @FileName	filetransupdown.xfdl 
+*******************************************************************************
+*  2020.07.16		nana			최초 생성
+*******************************************************************************
+*/
+/**************************************************************************
+ * include 영역 
+ **************************************************************************/
+include "FrameBase::lib_filetransupdown.xjs";
+
+/**************************************************************************
+ * FORM 변수 선언 영역
+**************************************************************************/
+//service url : 사용경로 지정
+this.saveUrl = "http://localhost:8080/hy_HD_admin_spring/service/";
+
+//file directory
+this.folderName = "fileupdown";	
+
+/**************************************************************************
+ * FORM EVENT 영역(onload)
+ **************************************************************************/
+this.filetransupdown_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	var objConfig  = {
+						objUpTrans	: this.fileUpTrans,
+						objDownTrans: this.fileDownTrans,
+						objDialog 	: this.fileDialog,
+						objProgId	: "ProgressBar00",
+						dsUploadId	: "dsUpload",
+						dsDownloadId: "dsDownload",
+						sFolerName	: this.folderName,
+						sSaveUrl	: this.saveUrl,
+						sUploadUrl	: "fileUpload_postdatatest.jsp?filefolder=",
+						sDownloadSingleUrl	: "fileDownload_postdatatest.jsp",
+						sDownloadMultiUrl	: "fileDownload_postdatatestAll.jsp"
+					 }
+
+	//form init function
+	this.gfnFileTransUpDownFormLoad(obj, objConfig);
+};
+
+/**************************************************************************
+ * CALLBACK 콜백 처리부분(Transaction)
+ **************************************************************************/
+ /**
+ * @description Transaction CallBack function
+*/
+this.fnCallback = function(svcId, errCode, errMsg)
+{
+	if(svcId == "list")
+	{
+		this.dsDownload.set_enableevent(false);
+		for(var i=0; i<this.dsDownload.getRowCount(); i++)
+		{
+			this.dsDownload.setColumn(i,"FiLE_SIZE",this.gfnCutFileSize(this.dsDownload.getColumn(i,"FiLE_SIZE")));
+		}
+		this.dsDownload.set_enableevent(true);
+	}
+};
+/**************************************************************************
+ * CRUD 및 TRANSACTION 서비스 호출 처리
+ **************************************************************************/
+ /**
+ * @description search file list
+*/
+this.fnSearchFileList = function()
+{
+	//search attach file list
+	this.transaction("list",
+					 this.saveUrl + "fileDownload_servlet_list_XML.jsp", 
+					 "",
+					 "dsDownload=dsList", 
+					 "filefolder="+this.folderName, 
+					 "fnCallback", 
+					 "false",
+					 "0");
+}
+
+/**************************************************************************
+* 사용자 FUNCTION 영역
+**************************************************************************/
+
+/**************************************************************************
+* 각 COMPONENT 별 EVENT 영역
+**************************************************************************/
+this.btnAdd_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//file dialog open
+	this.fileDialog.open('nexacro17', FileDialog.MULTILOAD);
+};
+
+this.btnDel_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//selected filelist remove
+	var nRow    = this.dsUpload.rowposition;
+	var sFileid = this.dsUpload.getColumn(nRow,"FILE_ID");
+	this.dsUpload.deleteRow(nRow);
+	
+	//filelist remove
+	this.fileUpTrans.removeFile(sFileid);			
+};
+
+this.btnSave_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//file upload excute
+	this.gfnUploadfile(obj.parent);
+
+};
+
+this.btnSearch_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//call file list (transaction)
+	this.fnSearchFileList();
+};
+
+this.btnDonwload_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//all file list download (.zip)
+	this.gfnMultiDownloadFiles(this.Grid01.parent);
+};
+
+this.Grid00_ondrop = function(obj:nexacro.Grid,e:nexacro.GridDragEventInfo)
+{
+	if(e.datatype == "file")
+	{
+		//ondrop grid--> add file list
+		this.gfnAddFileList(e.filelist, obj.parent);
+	}
+};
+
+this.Grid01_oncelldblclick = function(obj:nexacro.Grid,e:nexacro.GridClickEventInfo)
+{
+	//Grid oncelldbclick --> download file 
+	this.gfnSingleDownloadFile(e.row, obj.parent);
+};]]></Script>
+  </Form>
+</FDL>

@@ -109,7 +109,7 @@
         // User Script
         this.registerScript("fileupdown_form.xfdl", function() {
         /* service url : 사용경로 지정 */
-        this.saveUrl = "C:/ikosmo64/spring/hdspace/.metadata/.plugins/org.eclipse.wst.server.core/tmp1/wtpwebapps/project_Dank/resources/upload/101/g1.jpg";
+        this.saveUrl = "http://localhost:8080/hy_HD_admin_spring/service/";
         this.folderName = "fileSample";	//file directory
 
         this.fullFilesize = 0;
@@ -315,7 +315,7 @@
         		"fileSample"
         	);
 
-        	this.fileDownTrans.download(this.saveUrl);
+        	this.fileDownTrans.download(this.saveUrl+"fileDownload_postdatatest.jsp");
         }
 
         this.downloadfileAll = function()

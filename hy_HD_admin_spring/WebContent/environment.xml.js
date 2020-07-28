@@ -6,6 +6,7 @@ if (nexacro.Environment)
     {
         this.set_themeid("theme::default");
         this.set_datatyperule("2.0");
+        this.set_filesecurelevel("all");
     };
 
     env.on_initEvent = function ()
@@ -24,6 +25,7 @@ if (nexacro.Environment)
         nexacro._addService("font", "file", "./_resource_/_font_/", "session", null, "", "0", "");
         nexacro._addService("Base", "form", "./Base/", "session", null, "", "0", "0");
         nexacro._addService("FrameBase", "form", "./FrameBase/", "session", null, "", "0", "0");
+        nexacro._addService("Service", "JSP", "./Service/", "session", null, "", "0", "0");
 
     	nexacro._component_uri = (nexacro._arg_compurl ? nexacro._arg_compurl : "./nexacro17lib/component/");
     	nexacro._theme_uri = "./_resource_/_theme_/";
