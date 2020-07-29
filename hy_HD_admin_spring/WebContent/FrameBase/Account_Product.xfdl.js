@@ -47,48 +47,51 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Tab("Tab00","28","20","1192","660",null,null,null,null,null,null,this);
+            obj = new Tab("Tab00","18","20","1192","660",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_tabindex("0");
             obj.set_border("3px dashed");
             this.addChild(obj.name, obj);
 
             obj = new Tabpage("Product_tab",this.Tab00);
-            obj.set_text("Product");
+            obj.set_text("프로덕트");
             this.Tab00.addChild(obj.name, obj);
 
-            obj = new Grid("productGrid","670","40","462","491",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Grid("productGrid","490","54","300","456",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("1");
             obj.set_binddataset("ProductList");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"pro_code\"/><Cell col=\"1\" text=\"ins_code\"/><Cell col=\"2\" text=\"sav_code\"/></Band><Band id=\"body\"><Cell text=\"bind:pro_code\"/><Cell col=\"1\" text=\"bind:ins_code\"/><Cell col=\"2\" text=\"bind:sav_code\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/></Columns><Rows><Row size=\"0\" band=\"head\"/><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"pro_code\"/><Cell col=\"1\" text=\"ins_code\"/><Cell col=\"2\" text=\"sav_code\"/><Cell row=\"1\" text=\"프로덕트코드\"/><Cell row=\"1\" col=\"1\" text=\"적금코드\"/><Cell row=\"1\" col=\"2\" text=\"예금코드\"/></Band><Band id=\"body\"><Cell text=\"bind:pro_code\"/><Cell col=\"1\" text=\"bind:ins_code\"/><Cell col=\"2\" text=\"bind:sav_code\"/></Band></Format></Formats>");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00","22","31","141","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Static("Static00","9","29","140","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("0");
-            obj.set_text("pro_code");
+            obj.set_text("프로덕트 코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Edit("pro_codev","186","25","159","60",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Edit("pro_codev","135","33","150","40",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("2");
             obj.set_readonly("true");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","22","111","141","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Static("Static00_00","35","106","83","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("3");
-            obj.set_text("ins_code");
+            obj.set_text("적금 코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","22","189","141","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Static("Static00_01","38","187","89","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("4");
-            obj.set_text("sav_code");
+            obj.set_text("예금 코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Button("Button00","257","285","145","45",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Button("Button00","192","250","145","45",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("5");
             obj.set_text("상품화");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Combo("del_pro_codev","334","414","122","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Combo("del_pro_codev","211","364","122","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("6");
             obj.set_innerdataset("ProductList");
             obj.set_codecolumn("pro_code");
@@ -96,12 +99,12 @@
             obj.set_text("Combo00");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Button("Button01","572","11","214","22",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Button("Button01","489","16","214","22",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("7");
             obj.set_text("프로덕트조회");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Combo("sav_codev","182","186","168","49",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Combo("sav_codev","135","188","150","40",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("8");
             obj.set_innerdataset("SavingList");
             obj.set_codecolumn("sav_code");
@@ -109,234 +112,232 @@
             obj.set_text("Combo02");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Radio("product_radio","369","92","109","153",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Radio("product_radio","295","92","109","153",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("9");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
             var Tab00_Product_tab_form_product_radio_innerdataset = new nexacro.NormalDataset("Tab00_Product_tab_form_product_radio_innerdataset", obj);
-            Tab00_Product_tab_form_product_radio_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">ins추가</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">sav추가</Col></Row></Rows>");
+            Tab00_Product_tab_form_product_radio_innerdataset._setContents("<ColumnInfo><Column id=\"codecolumn\" size=\"256\"/><Column id=\"datacolumn\" size=\"256\"/></ColumnInfo><Rows><Row><Col id=\"codecolumn\">1</Col><Col id=\"datacolumn\">적금선택</Col></Row><Row><Col id=\"codecolumn\">2</Col><Col id=\"datacolumn\">예금선택</Col></Row></Rows>");
             obj.set_innerdataset(Tab00_Product_tab_form_product_radio_innerdataset);
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Button("Button02","477","412","88","48",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Button("Button02","343","361","88","48",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("10");
             obj.set_text("제거");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
-            obj = new Combo("ins_codev","185","115","164","45",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj = new Combo("ins_codev","135","110","150","40",null,null,null,null,null,null,this.Tab00.Product_tab.form);
             obj.set_taborder("11");
             obj.set_innerdataset("Installment_Saving");
             obj.set_codecolumn("ins_code");
             obj.set_datacolumn("ins_code");
             this.Tab00.Product_tab.addChild(obj.name, obj);
 
+            obj = new Static("Static00_01_00","29","361","186","43",null,null,null,null,null,null,this.Tab00.Product_tab.form);
+            obj.set_taborder("12");
+            obj.set_text("삭제할 프로덕트  코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
+            this.Tab00.Product_tab.addChild(obj.name, obj);
+
             obj = new Tabpage("Qualification_tab",this.Tab00);
-            obj.set_text("Qualification");
+            obj.set_text("자격요건");
             this.Tab00.addChild(obj.name, obj);
 
-            obj = new Div("qua_div","21","24","422","542",null,null,null,null,null,null,this.Tab00.Qualification_tab.form);
+            obj = new Div("qua_div","21","24","329","542",null,null,null,null,null,null,this.Tab00.Qualification_tab.form);
             obj.set_taborder("0");
             obj.set_text("Div00");
-            obj.set_border("1px solid");
+            obj.set_border("0px dotted");
             this.Tab00.Qualification_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00","30","30","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("Static00","1","23","127","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("0");
-            obj.set_text("qua_code");
+            obj.set_text("자격요건코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_codev","120","25","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_codev","131","18","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("1");
             obj.set_enable("false");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("sdf","30","80","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("sdf","18","79","103","33",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("2");
-            obj.set_text("qua_name");
+            obj.set_text("자격요건명>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_namev","120","75","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_namev","131","75","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("3");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","30","125","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("Static00_01","2","125","115","28",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("4");
-            obj.set_text("qua_maxage");
+            obj.set_text("최대가입나이>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_maxagev","120","120","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_maxagev","131","119","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("5");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02","30","175","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("Static00_02","3","174","119","29",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("6");
-            obj.set_text("qua_minage");
+            obj.set_text("최소가입나이>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_minagev","120","170","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_minagev","131","169","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("7");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_03","30","225","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("Static00_03","37","219","80","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("8");
-            obj.set_text("qua_minmoney");
+            obj.set_text("최소금액>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_minmoneyv","120","220","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_minmoneyv","131","219","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("9");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04","30","275","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("Static00_04","38","273","78","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("10");
-            obj.set_text("qua_maxmoeny");
+            obj.set_text("최대금액>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_maxmoneyv","120","270","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_maxmoneyv","131","269","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("11");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_05","30","320","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("Static00_05","40","320","79","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("12");
-            obj.set_text("qua_minperiod");
+            obj.set_text("최소기간>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_minperiodv","120","315","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_minperiodv","131","314","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("13");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_05_00","30","365","90","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Static("Static00_05_00","40","364","78","20",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("14");
-            obj.set_text("qua_maxperiod");
+            obj.set_text("최대기간>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Edit("qua_maxperiodv","120","360","140","30",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Edit("qua_maxperiodv","131","359","150","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("15");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Button("qua_add_btn","178","400","81","27",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Button("qua_add_btn","226","407","81","27",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("16");
             obj.set_text("등록");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Button("qua_update_btn","280","440","85","31",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj = new Button("Button01_00","238","483","85","31",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
             obj.set_taborder("17");
-            obj.set_text("수정");
-            this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
-
-            obj = new Button("Button01_00","281","480","85","31",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
-            obj.set_taborder("18");
             obj.set_text("삭제");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Combo("up_qua_codev","190","440","70","32",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
-            obj.set_taborder("19");
-            obj.set_codecolumn("qua_code");
-            obj.set_innerdataset("");
-            obj.set_text("Combo00");
-            this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
-
-            obj = new Combo("del_qua_codev","190","483","69","32",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
-            obj.set_taborder("20");
+            obj = new Combo("del_qua_codev","155","484","69","32",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj.set_taborder("18");
             obj.set_codecolumn("qua_code");
             obj.set_innerdataset("QualificationList");
             obj.set_text("Combo00");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static01","60","441","117","34",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
-            obj.set_taborder("21");
-            obj.set_text("수정할 qua_code");
+            obj = new Static("Static01_00","10","481","132","34",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
+            obj.set_taborder("19");
+            obj.set_text("삭제할 자격요건코드>>");
             this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
 
-            obj = new Static("Static01_00","61","482","117","34",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
-            obj.set_taborder("22");
-            obj.set_text("삭제할 qua_code");
-            this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
-
-            obj = new Div("Div00","56","433","329","40",null,null,null,null,null,null,this.Tab00.Qualification_tab.form.qua_div.form);
-            obj.set_taborder("23");
-            obj.set_text("Div00");
-            obj.set_background("gray");
-            this.Tab00.Qualification_tab.form.qua_div.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00","510","60","670","500",null,null,null,null,null,null,this.Tab00.Qualification_tab.form);
+            obj = new Grid("Grid00","356","58","800","508",null,null,null,null,null,null,this.Tab00.Qualification_tab.form);
             obj.set_taborder("1");
             obj.set_border("1px dotted");
             obj.set_binddataset("QualificationList");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"qua_code\"/><Cell col=\"1\" text=\"qua_name\"/><Cell col=\"2\" text=\"qua_maxage\"/><Cell col=\"3\" text=\"qua_minage\"/><Cell col=\"4\" text=\"qua_maxmoney\"/><Cell col=\"5\" text=\"qua_minmoney\"/><Cell col=\"6\" text=\"qua_maxperiod\"/><Cell col=\"7\" text=\"qua_minperiod\"/></Band><Band id=\"body\"><Cell text=\"bind:qua_code\"/><Cell col=\"1\" text=\"bind:qua_name\"/><Cell col=\"2\" text=\"bind:qua_maxage\"/><Cell col=\"3\" text=\"bind:qua_minage\"/><Cell col=\"4\" text=\"bind:qua_maxmoney\"/><Cell col=\"5\" text=\"bind:qua_minmoney\"/><Cell col=\"6\" text=\"bind:qua_maxperiod\"/><Cell col=\"7\" text=\"bind:qua_minperiod\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"90\"/><Column size=\"90\"/><Column size=\"90\"/><Column size=\"90\"/><Column size=\"110\"/><Column size=\"110\"/><Column size=\"110\"/><Column size=\"110\"/></Columns><Rows><Row size=\"0\" band=\"head\"/><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"qua_code\"/><Cell col=\"1\" text=\"qua_name\"/><Cell col=\"2\" text=\"qua_maxage\"/><Cell col=\"3\" text=\"qua_minage\"/><Cell col=\"4\" text=\"qua_maxmoney\"/><Cell col=\"5\" text=\"qua_minmoney\"/><Cell col=\"6\" text=\"qua_maxperiod\"/><Cell col=\"7\" text=\"qua_minperiod\"/><Cell row=\"1\" text=\"자격요건코드\"/><Cell row=\"1\" col=\"1\" text=\"자격요건명\"/><Cell row=\"1\" col=\"2\" text=\"최대가입나이\"/><Cell row=\"1\" col=\"3\" text=\"최소가입나이\"/><Cell row=\"1\" col=\"4\" text=\"최대금액\"/><Cell row=\"1\" col=\"5\" text=\"최소금액\"/><Cell row=\"1\" col=\"6\" text=\"최대기간\"/><Cell row=\"1\" col=\"7\" text=\"최소기간\"/></Band><Band id=\"body\"><Cell text=\"bind:qua_code\"/><Cell col=\"1\" text=\"bind:qua_name\"/><Cell col=\"2\" text=\"bind:qua_maxage\"/><Cell col=\"3\" text=\"bind:qua_minage\"/><Cell col=\"4\" text=\"bind:qua_maxmoney\"/><Cell col=\"5\" text=\"bind:qua_minmoney\"/><Cell col=\"6\" text=\"bind:qua_maxperiod\"/><Cell col=\"7\" text=\"bind:qua_minperiod\"/></Band></Format></Formats>");
             this.Tab00.Qualification_tab.addChild(obj.name, obj);
 
-            obj = new Button("Button00","511","16","172","38",null,null,null,null,null,null,this.Tab00.Qualification_tab.form);
+            obj = new Button("Button00","358","13","172","38",null,null,null,null,null,null,this.Tab00.Qualification_tab.form);
             obj.set_taborder("2");
-            obj.set_text("Qualification테이블조회하기");
+            obj.set_text("자격요건 테이블조회하기");
             this.Tab00.Qualification_tab.addChild(obj.name, obj);
 
             obj = new Tabpage("Saving_tab",this.Tab00);
-            obj.set_text("Saving");
+            obj.set_text("예금");
             this.Tab00.addChild(obj.name, obj);
 
-            obj = new Grid("SavingGrid","534","30","638","268",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Grid("SavingGrid","534","30","585","268",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("0");
             obj.set_binddataset("SavingList");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"sav_code\"/><Cell col=\"1\" text=\"sav_name\"/><Cell col=\"2\" text=\"sav_interestrate\"/><Cell col=\"3\" text=\"sav_online\"/><Cell col=\"4\" text=\"shas_code\"/><Cell col=\"5\" text=\"qua_code\"/></Band><Band id=\"body\"><Cell text=\"bind:sav_code\"/><Cell col=\"1\" text=\"bind:sav_name\"/><Cell col=\"2\" text=\"bind:sav_interestrate\"/><Cell col=\"3\" text=\"bind:sav_online\"/><Cell col=\"4\" text=\"bind:shas_code\"/><Cell col=\"5\" text=\"bind:qua_code\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"90\"/><Column size=\"90\"/><Column size=\"90\"/><Column size=\"110\"/><Column size=\"100\"/><Column size=\"100\"/></Columns><Rows><Row size=\"0\" band=\"head\"/><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"sav_code\"/><Cell col=\"1\" text=\"sav_name\"/><Cell col=\"2\" text=\"sav_interestrate\"/><Cell col=\"3\" text=\"sav_online\"/><Cell col=\"4\" text=\"shas_code\"/><Cell col=\"5\" text=\"qua_code\"/><Cell row=\"1\" text=\"예금코드\"/><Cell row=\"1\" col=\"1\" text=\"예금명\"/><Cell row=\"1\" col=\"2\" text=\"금리\"/><Cell row=\"1\" col=\"3\" text=\"온라인가입여부\"/><Cell row=\"1\" col=\"4\" text=\"공유예금코드\"/><Cell row=\"1\" col=\"5\" text=\"자격요건코드\"/></Band><Band id=\"body\"><Cell text=\"bind:sav_code\"/><Cell col=\"1\" text=\"bind:sav_name\"/><Cell col=\"2\" text=\"bind:sav_interestrate\"/><Cell col=\"3\" text=\"bind:sav_online\"/><Cell col=\"4\" text=\"bind:shas_code\"/><Cell col=\"5\" text=\"bind:qua_code\"/></Band></Format></Formats>");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00","20","31","122","21",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Static("Static00","57","15","100","25",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("1");
-            obj.set_text("sav_code");
+            obj.set_text("예금코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("sav_codev","162","27","142","28",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Edit("sav_codev","161","10","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("2");
             obj.set_enable("false");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("sav_namev","164","65","141","27",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Edit("sav_namev","161","55","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("3");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","22","69","127","18",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Static("Static00_00","70","60","71","20",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("4");
-            obj.set_text("sav_name");
+            obj.set_text("예금명>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("sav_interestratev","164","102","142","26",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Edit("sav_interestratev","161","102","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("5");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","22","106","122","18",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Static("Static00_01","83","110","55","24",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("6");
-            obj.set_text("sav_interestrate");
+            obj.set_text("금리>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02","26","150","124","18",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Static("Static00_02","14","160","124","23",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("7");
-            obj.set_text("sav_online");
+            obj.set_text("온라인가입여부>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_03","20","180","123","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Static("Static00_03","25","194","123","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("8");
-            obj.set_text("shas_code");
+            obj.set_text("공유예금코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_04","26","220","123","23",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Static("Static00_04","25","238","123","28",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("9");
-            obj.set_text("qua_code");
+            obj.set_text("자격요건코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Combo("qua_codev","161","219","143","29",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Combo("qua_codev","160","237","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("10");
             obj.set_codecolumn("qua_code");
             obj.set_innerdataset("QualificationList");
+            obj.set_datacolumn("qua_name");
             obj.set_text("Combo00");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new CheckBox("shas_code_chk","320","182","110","28",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new CheckBox("shas_code_chk","315","156","110","28",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("11");
             obj.set_text("공유여부");
             obj.set_value("");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Combo("shas_codev","163","181","139","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Combo("shas_codev","160","189","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("12");
             obj.set_innerdataset("Shared_Saving");
             obj.set_codecolumn("shas_code");
@@ -349,85 +350,88 @@
             obj.set_border("1px dotted");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Grid("Shared_ChallengeGrid","570","27","581","213",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Grid("Shared_ChallengeGrid","528","25","397","213",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("0");
             obj.set_binddataset("Shared_Saving");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"shas_code\"/><Cell col=\"1\" text=\"shas_count\"/><Cell col=\"2\" text=\"shas_master\"/></Band><Band id=\"body\"><Cell text=\"bind:shas_code\"/><Cell col=\"1\" text=\"bind:shas_count\"/><Cell col=\"2\" text=\"bind:shas_master\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"130\"/><Column size=\"130\"/><Column size=\"130\"/></Columns><Rows><Row size=\"0\" band=\"head\"/><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"shas_code\"/><Cell col=\"1\" text=\"shas_count\"/><Cell col=\"2\" text=\"shas_master\"/><Cell row=\"1\" text=\"공유예금코드\"/><Cell row=\"1\" col=\"1\" text=\"가입인원수\"/><Cell row=\"1\" col=\"2\" text=\"계좌주\"/></Band><Band id=\"body\"><Cell text=\"bind:shas_code\"/><Cell col=\"1\" text=\"bind:shas_count\"/><Cell col=\"2\" text=\"bind:shas_master\"/></Band></Format></Formats>");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
             obj = new Static("asdf","13","30","108","19",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("1");
-            obj.set_text("shas_code");
+            obj.set_text("공유예금코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Edit("shas_codev","144","25","132","34",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Edit("shas_codev","144","25","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("2");
             obj.set_enable("false");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","13","75","108","19",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Static("Static00_00","26","75","108","19",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("3");
-            obj.set_text("shas_count");
+            obj.set_text("가입인원수>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Edit("shas_countv","144","70","132","34",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Edit("shas_countv","144","70","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("4");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","13","120","108","19",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Static("Static00_01","56","121","85","29",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("5");
-            obj.set_text("shas_master");
+            obj.set_text("계좌주>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Edit("shas_masterv","144","115","132","34",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Edit("shas_masterv","144","115","150","40",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("6");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Button("shas_add_btn","281","159","85","31",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Button("shas_add_btn","308","155","90","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("7");
             obj.set_text("등록");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Button("shas_inquire","564","3","113","20",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Button("shas_inquire","528","5","113","20",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("8");
             obj.set_text("공유예금테이블조회");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Button("shas_del_btn","281","200","89","41",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Button("shas_del_btn","308","200","90","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("9");
             obj.set_text("삭제");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Combo("del_shas_codev","176","200","104","41",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
+            obj = new Combo("del_shas_codev","208","200","90","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form.shas_div.form);
             obj.set_taborder("10");
             obj.set_innerdataset("Shared_Saving");
             obj.set_codecolumn("shas_code");
             obj.set_text("Combo00");
             this.Tab00.Saving_tab.form.shas_div.addChild(obj.name, obj);
 
-            obj = new Button("saving_add_btn","340","221","95","32",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Button("saving_add_btn","321","245","90","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("14");
             obj.set_text("등록");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
             obj = new Button("saving_inquire","535","3","108","21",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("15");
-            obj.set_text("saving테이블조회");
+            obj.set_text("예금테이블조회");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Combo("del_saving_codev","316","271","84","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Combo("del_saving_codev","222","287","90","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("16");
             obj.set_innerdataset("SavingList");
             obj.set_codecolumn("sav_code");
             obj.set_text("Combo02");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Button("saving_del_Btn","417","272","95","31",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Button("saving_del_Btn","320","285","90","30",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("17");
             obj.set_text("삭제");
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
-            obj = new Radio("sav_onlinev","166","141","139","39",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
+            obj = new Radio("sav_onlinev","163","149","139","39",null,null,null,null,null,null,this.Tab00.Saving_tab.form);
             obj.set_taborder("18");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -437,83 +441,92 @@
             this.Tab00.Saving_tab.addChild(obj.name, obj);
 
             obj = new Tabpage("Installment_Saving_tab",this.Tab00);
-            obj.set_text("Installment_Saving");
+            obj.set_text("적금");
             this.Tab00.addChild(obj.name, obj);
 
             obj = new Grid("Installment_SavingGrid","400","34","780","268",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("1");
             obj.set_binddataset("Installment_Saving");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"ins_code\"/><Cell col=\"1\" text=\"ins_name\"/><Cell col=\"2\" text=\"ins_online\"/><Cell col=\"3\" text=\"ins_interestrate\"/><Cell col=\"4\" text=\"ins_droprate\"/><Cell col=\"5\" text=\"ins_putmoney\"/><Cell col=\"6\" text=\"ins_term\"/><Cell col=\"7\" text=\"shac_code\"/><Cell col=\"8\" text=\"qua_code\"/></Band><Band id=\"body\"><Cell text=\"bind:ins_code\"/><Cell col=\"1\" text=\"bind:ins_name\"/><Cell col=\"2\" text=\"bind:ins_online\"/><Cell col=\"3\" text=\"bind:ins_interestrate\"/><Cell col=\"4\" text=\"bind:ins_droprate\"/><Cell col=\"5\" text=\"bind:ins_putmoney\"/><Cell col=\"6\" text=\"bind:ins_term\"/><Cell col=\"7\" text=\"bind:shac_code\"/><Cell col=\"8\" text=\"bind:qua_code\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"70\"/><Column size=\"70\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/><Column size=\"70\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row size=\"0\" band=\"head\"/><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"ins_code\"/><Cell col=\"1\" text=\"ins_name\"/><Cell col=\"2\" text=\"ins_online\"/><Cell col=\"3\" text=\"ins_interestrate\"/><Cell col=\"4\" text=\"ins_droprate\"/><Cell col=\"5\" text=\"ins_putmoney\"/><Cell col=\"6\" text=\"ins_term\"/><Cell col=\"7\" text=\"shac_code\"/><Cell col=\"8\" text=\"qua_code\"/><Cell row=\"1\" text=\"적금코드\"/><Cell row=\"1\" col=\"1\" text=\"적금명\"/><Cell row=\"1\" col=\"2\" text=\"온라인가입여부\"/><Cell row=\"1\" col=\"3\" text=\"금리\"/><Cell row=\"1\" col=\"4\" text=\"중도해지이율\"/><Cell row=\"1\" col=\"5\" text=\"선택금액\"/><Cell row=\"1\" col=\"6\" text=\"선택기간\"/><Cell row=\"1\" col=\"7\" text=\"공유적금코드\"/><Cell row=\"1\" col=\"8\" text=\"자격요건코드\"/></Band><Band id=\"body\"><Cell text=\"bind:ins_code\"/><Cell col=\"1\" text=\"bind:ins_name\"/><Cell col=\"2\" text=\"bind:ins_online\"/><Cell col=\"3\" text=\"bind:ins_interestrate\"/><Cell col=\"4\" text=\"bind:ins_droprate\"/><Cell col=\"5\" text=\"bind:ins_putmoney\"/><Cell col=\"6\" text=\"bind:ins_term\"/><Cell col=\"7\" text=\"bind:shac_code\"/><Cell col=\"8\" text=\"bind:qua_code\"/></Band></Format></Formats>");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00","13","11","67","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00","18","11","79","20",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("0");
-            obj.set_text("ins_code");
+            obj.set_text("적금코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("ins_codev","109","4","68","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Edit("ins_codev","109","4","70","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("2");
             obj.set_enable("false");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("ins_namev","110","39","68","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Edit("ins_namev","110","39","70","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("3");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","14","46","67","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00_00","36","46","67","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("4");
-            obj.set_text("ins_name");
+            obj.set_text("적금명>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","15","81","67","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00_01","5","81","126","21",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("5");
-            obj.set_text("ins_online");
+            obj.set_text("온라인가입>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("ins_interestratev","112","113","68","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Edit("ins_interestratev","112","113","70","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("6");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_02","16","120","93","20",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00_02","54","120","93","20",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("7");
-            obj.set_text("ins_interestrate");
+            obj.set_text("금리>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("ins_dropratev","112","159","68","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Edit("ins_dropratev","112","159","70","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("8");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_03","16","166","76","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00_03","-2","161","113","27",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("9");
-            obj.set_text("ins_droprate");
+            obj.set_text("중도해지이율>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("ins_putmoneyv","114","199","68","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Edit("ins_putmoneyv","113","199","70","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("10");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
             obj = new Static("Static00_04","18","206","84","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("11");
-            obj.set_text("ins_putmoney");
+            obj.set_text("선택금액>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Edit("ins_termv","263","6","77","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Edit("ins_termv","300","3","70","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("12");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_05","185","12","67","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00_05","213","9","87","24",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("13");
-            obj.set_text("ins_term");
+            obj.set_text("선택기간>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_06","186","46","67","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00_06","186","46","117","22",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("14");
-            obj.set_text("shac_code");
+            obj.set_text("공유적금코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Static("Static00_07","187","117","67","19",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Static("Static00_07","187","117","142","23",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("15");
-            obj.set_text("qua_code");
+            obj.set_text("자격요건코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
             obj = new Button("installment_saving_inquire","407","8","105","22",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
@@ -521,26 +534,27 @@
             obj.set_text("적금조회");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Button("installment_saving_add_btn","225","183","121","50",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Button("installment_saving_add_btn","293","169","100","50",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("17");
             obj.set_text("등록");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Combo("shac_codev","265","48","75","26",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Combo("shac_codev","300","45","70","26",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("18");
             obj.set_innerdataset("Shared_Challenge");
             obj.set_codecolumn("shac_code");
             obj.set_text("Combo00");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Combo("ins_qua_codev","265","117","75","26",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Combo("ins_qua_codev","299","116","91","26",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("19");
             obj.set_codecolumn("qua_code");
             obj.set_innerdataset("QualificationList");
+            obj.set_datacolumn("qua_name");
             obj.set_text("Combo01");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new CheckBox("shac_code_chk","290","74","106","21",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new CheckBox("shac_code_chk","322","74","106","21",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("20");
             obj.set_text("공유여부");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
@@ -551,15 +565,16 @@
             obj.set_border("1px dotted");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Grid("Shared_ChallengeGrid","440","40","646","201",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
+            obj = new Grid("Shared_ChallengeGrid","440","40","308","201",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("0");
             obj.set_binddataset("Shared_Challenge");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"shac_code\"/><Cell col=\"1\" text=\"shac_mannum\"/><Cell col=\"2\" text=\"shac_master\"/></Band><Band id=\"body\"><Cell text=\"bind:shac_code\"/><Cell col=\"1\" text=\"bind:shac_mannum\"/><Cell col=\"2\" text=\"bind:shac_master\"/></Band></Format></Formats>");
+            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"100\"/><Column size=\"100\"/><Column size=\"100\"/></Columns><Rows><Row size=\"0\" band=\"head\"/><Row size=\"24\" band=\"head\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"shac_code\"/><Cell col=\"1\" text=\"shac_mannum\"/><Cell col=\"2\" text=\"shac_master\"/><Cell row=\"1\" text=\"공유적금코드\"/><Cell row=\"1\" col=\"1\" text=\"가입인원수\"/><Cell row=\"1\" col=\"2\" text=\"계좌주\"/></Band><Band id=\"body\"><Cell text=\"bind:shac_code\"/><Cell col=\"1\" text=\"bind:shac_mannum\"/><Cell col=\"2\" text=\"bind:shac_master\"/></Band></Format></Formats>");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00","23","30","102","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
+            obj = new Static("Static00","16","27","116","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("1");
-            obj.set_text("shac_code");
+            obj.set_text("공유적금코드>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
             obj = new Edit("shac_codev","141","25","119","35",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
@@ -571,18 +586,20 @@
             obj.set_taborder("3");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_00","23","78","102","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
+            obj = new Static("Static00_00","32","78","126","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("4");
-            obj.set_text("shac_mannum");
+            obj.set_text("가입인원수>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
             obj = new Edit("shac_masterv","141","115","119","35",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("5");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
-            obj = new Static("Static00_01","23","120","102","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
+            obj = new Static("Static00_01","64","114","102","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("6");
-            obj.set_text("shac_master");
+            obj.set_text("계좌주>>");
+            obj.set_font("15px/normal \"Gulim\"");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
             obj = new Button("Shared_challenge_inquire","445","6","209","28",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
@@ -590,36 +607,36 @@
             obj.set_text("공유적금조회");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
-            obj = new Button("shared_challenge_add_btn","197","158","136","36",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
+            obj = new Button("shared_challenge_add_btn","274","134","100","50",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("8");
             obj.set_text("등록");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
-            obj = new Combo("del_shac_codev","160","213","82","27",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
+            obj = new Combo("del_shac_codev","137","217","82","27",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("9");
             obj.set_innerdataset("Shared_Challenge");
             obj.set_codecolumn("shac_code");
             obj.set_text("Combo00");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
-            obj = new Button("shac_del_btn","275","214","88","29",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
+            obj = new Button("shac_del_btn","231","214","88","29",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form.shac_div.form);
             obj.set_taborder("10");
             obj.set_text("삭제");
             this.Tab00.Installment_Saving_tab.form.shac_div.addChild(obj.name, obj);
 
-            obj = new Button("int_delete_btn","287","259","91","29",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Button("int_delete_btn","252","260","91","29",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("22");
             obj.set_text("삭제");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Combo("del_ins_codev","194","260","83","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Combo("del_ins_codev","159","261","83","30",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("23");
             obj.set_innerdataset("Installment_Saving");
             obj.set_codecolumn("ins_code");
             obj.set_text("Combo02");
             this.Tab00.Installment_Saving_tab.addChild(obj.name, obj);
 
-            obj = new Radio("ins_onlinev","87","70","139","43",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
+            obj = new Radio("ins_onlinev","101","71","139","43",null,null,null,null,null,null,this.Tab00.Installment_Saving_tab.form);
             obj.set_taborder("24");
             obj.set_codecolumn("codecolumn");
             obj.set_datacolumn("datacolumn");
@@ -1104,7 +1121,7 @@
         	//this.Tab00.Product_tab.form.pro_codev.set_value('')
         	//this.Tab00.Product_tab.form.sav_codev.set_value('')
         	//this.Tab00.Product_tab.form.ins_codev.set_value('')
-        	this.alert(sav_codev+","+ins_codev)
+        	//this.alert(sav_codev+","+ins_codev)
 
 
         	var id="product_insert";
@@ -1118,6 +1135,16 @@
         	{
         		this.Tab00_Product_tab_Button01_onclick()
         	};
+
+        };
+
+        this.Tab00_Qualification_tab_qua_div_sdf_onclick = function(obj,e)
+        {
+
+        };
+
+        this.Tab00_Installment_Saving_tab_ins_onlinev_onitemchanged = function(obj,e)
+        {
 
         };
 
@@ -1136,8 +1163,9 @@
             this.Tab00.Product_tab.form.Button01.addEventHandler("onclick",this.Tab00_Product_tab_Button01_onclick,this);
             this.Tab00.Product_tab.form.product_radio.addEventHandler("onitemchanged",this.Tab00_Product_tab_Radio00_onitemchanged,this);
             this.Tab00.Product_tab.form.Button02.addEventHandler("onclick",this.Tab00_Product_tab_Button02_onclick,this);
+            this.Tab00.Product_tab.form.Static00_01_00.addEventHandler("onclick",this.Tab00_Product_Static00_onclick,this);
+            this.Tab00.Qualification_tab.form.qua_div.form.sdf.addEventHandler("onclick",this.Tab00_Qualification_tab_qua_div_sdf_onclick,this);
             this.Tab00.Qualification_tab.form.qua_div.form.qua_add_btn.addEventHandler("onclick",this.qua_div_qua_insert_onclick,this);
-            this.Tab00.Qualification_tab.form.qua_div.form.qua_update_btn.addEventHandler("onclick",this.Tab00_Qualification_qua_div_qua_update_btn_onclick,this);
             this.Tab00.Qualification_tab.form.qua_div.form.Button01_00.addEventHandler("onclick",this.qua_div_qua_delete_onclick,this);
             this.Tab00.Qualification_tab.form.Button00.addEventHandler("onclick",this.qua_div_qualification_list,this);
             this.Tab00.Saving_tab.form.shas_code_chk.addEventHandler("onclick",this.Tab00_Saving_tab_shas_code_chk_onclick,this);
@@ -1155,6 +1183,7 @@
             this.Tab00.Installment_Saving_tab.form.shac_div.form.shared_challenge_add_btn.addEventHandler("onclick",this.Tab00_Installment_Saving_tab_Div00_shared_challenge_add_btn_onclick,this);
             this.Tab00.Installment_Saving_tab.form.shac_div.form.shac_del_btn.addEventHandler("onclick",this.Tab00_Installment_Saving_tab_shac_div_shac_del_btn_onclick,this);
             this.Tab00.Installment_Saving_tab.form.int_delete_btn.addEventHandler("onclick",this.Tab00_Installment_Saving_tab_int_delete_btn_onclick,this);
+            this.Tab00.Installment_Saving_tab.form.ins_onlinev.addEventHandler("onitemchanged",this.Tab00_Installment_Saving_tab_ins_onlinev_onitemchanged,this);
         };
 
         this.loadIncludeScript("Account_Product.xfdl");

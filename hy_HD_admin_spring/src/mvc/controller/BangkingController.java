@@ -14,8 +14,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.nexacro17.xapi.data.DataSet;
 import com.nexacro17.xapi.data.DataTypes;
 
-import dank.mvc.vo.MemberVO;
+
 import mvc.dao.BangkingDAO;
+import mvc.service.Bangking_Service;
 import mvc.vo.Bangking_viewVO;
 
 @Controller
@@ -23,6 +24,9 @@ public class BangkingController {
 
 	@Autowired
 	private BangkingDAO bangkingdao;
+	
+	@Autowired
+	private Bangking_Service bangkingservice;
 	@RequestMapping("/getaccount")
 	public ModelAndView getac(String ac_num) {
 		ModelAndView mav = new ModelAndView("all");
@@ -61,65 +65,25 @@ public class BangkingController {
 	
 	@RequestMapping(value={ "/deposit" })
 	public ModelAndView executedeposit(Bangking_viewVO vo) {
-		
 		ModelAndView mav = new ModelAndView();
-
-		
-		//String money ="10000";
-		
-	
-		
 		if(bangkingdao.depcheckac(vo.getAc_num())>=1) {
-		Map<String, String> depositparam = new HashMap<String, String>();
-		depositparam.put("ac_num", vo.getAc_num());
-		depositparam.put("money",vo.getMoney());
-		depositparam.put("sp_name", vo.getSp_name());
-		depositparam.put("mem_code", String.valueOf(vo.getMem_code()));
-		//여기까지작업함20200728
-		bangkingservice.depositprocess(money, paramapsp, paramapbal);
+			bangkingservice.depositprocess(vo);
 		}
-		
-		
-		
 		mav.setViewName("redirect:/");
 		return mav;
 	}
 	
 	//출금하기(임시기능)
 	@RequestMapping(value={ "/withdraw" })
-	public ModelAndView executewithdraw(HttpSession session,String ac_num) {
-		//int acnum = Integer.parseInt(ac_num);
-		MemberVO sessionmem = (MemberVO) session.getAttribute("member");
+	public ModelAndView executewithdraw(Bangking_viewVO vo) {	
 		ModelAndView mav = new ModelAndView();
-		
-		
-		String money ="10000";
-		
-		
-		
-		if(bangkingdao.witcheckac(ac_num)>=1) {
-			Map<String, String> paramckbal = new HashMap<String, String>();
-			paramckbal.put("ac_num", ac_num);
-			paramckbal.put("mem_code", String.valueOf(sessionmem.getMem_code()));
-			if(Long.parseLong(bangkingdao.witcheckbal(paramckbal)) >= Long.parseLong(money)) {
-				Map<String, String> paramapsp = new HashMap<String, String>();
-				paramapsp.put("ac_num", ac_num);
-				paramapsp.put("mem_code", String.valueOf(sessionmem.getMem_code()));
-				paramapsp.put("sp_name", "출금테스트용");
-				Map<String, String> paramapbal = new HashMap<String, String>();
-				paramapbal.put("ac_num", ac_num);
-				paramapbal.put("mem_code", String.valueOf(sessionmem.getMem_code()));
-				paramapbal.put("wit_money",money);
-				bangkingservice.withdrawprocess(money, paramapsp, paramapbal);
+		if(bangkingdao.witcheckac(vo.getAc_num())>=1) {
+			if(Long.parseLong(bangkingdao.witcheckbal(vo)) >= Long.parseLong(vo.getMoney())) {
+				bangkingservice.withdrawprocess(vo);
 			}
-			
-			
-			
 		}
-		
-		
-		
-		mav.setViewName("redirect:inquire");
+		mav.setViewName("redirect:/");
 		return mav;
 	}
+	
 }

@@ -22,8 +22,8 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("Div00","362","150","298","175",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
+            obj = new Div("Div00","420","263","298","175",null,null,null,null,null,null,this);
+            obj.set_taborder("0");
             obj.set_border("1px solid");
             this.addChild(obj.name, obj);
 
@@ -49,22 +49,6 @@
             obj.set_taborder("4");
             obj.set_text("로그인");
             this.Div00.addChild(obj.name, obj);
-
-            obj = new Grid("Grid00","716","111","312","243",null,null,null,null,null,null,this);
-            obj.set_taborder("0");
-            obj.set_binddataset("login");
-            obj._setContents("<Formats><Format id=\"default\"><Columns><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/><Column size=\"80\"/></Columns><Rows><Row band=\"head\" size=\"24\"/><Row size=\"24\"/></Rows><Band id=\"head\"><Cell text=\"hd_id\"/><Cell col=\"1\" text=\"hd_pw\"/><Cell col=\"2\" text=\"check\"/><Cell col=\"3\" text=\"level\"/></Band><Band id=\"body\"><Cell text=\"bind:hd_id\"/><Cell col=\"1\" text=\"bind:hd_pw\"/><Cell col=\"2\" text=\"bind:check\"/><Cell col=\"3\" text=\"bind:level\"/></Band></Format></Formats>");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("Button02","329","385","92","40",null,null,null,null,null,null,this);
-            obj.set_taborder("2");
-            obj.set_text("지금누구");
-            this.addChild(obj.name, obj);
-
-            obj = new Button("Button03","451","386","74","45",null,null,null,null,null,null,this);
-            obj.set_taborder("3");
-            obj.set_text("로그아웃");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -220,8 +204,6 @@
         {
             this.Div00.form.Static00_00.addEventHandler("onclick",this.Div00_Static00_00_onclick,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
-            this.Button02.addEventHandler("onclick",this.Button02_onclick,this);
-            this.Button03.addEventHandler("onclick",this.Button03_onclick,this);
         };
 
         this.loadIncludeScript("Loan.xfdl");

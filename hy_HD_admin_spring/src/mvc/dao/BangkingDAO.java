@@ -26,11 +26,11 @@ public class BangkingDAO {
 	public void depplusdep(String dep_money) {
 	ss.insert("bangking.depplusdep", dep_money);
 	}
-	public void depplussp(Map<String, String> paramapsp ) {
-	ss.insert("bangking.depplussp", paramapsp );
+	public void depplussp(Bangking_viewVO vo ) {
+	ss.insert("bangking.depplussp", vo );
 	}
-	public void depdepupbalance(Map<String, String> paramapbal) {
-	ss.update("bangking.depdepupbalance", paramapbal);
+	public void depdepupbalance(Bangking_viewVO vo) {
+	ss.update("bangking.depdepupbalance", vo);
 	}
 	///////////////////////////////////////////////////////////입금종료/@
 	
@@ -39,18 +39,18 @@ public class BangkingDAO {
 	return ss.selectOne("bangking.witcheckac", ac_num);
 	}
 	
-	public String witcheckbal(Map<String, String> paramckbal) {
-	return ss.selectOne("bangking.witcheckbalance", paramckbal);
+	public String witcheckbal(Bangking_viewVO vo) {
+	return ss.selectOne("bangking.witcheckbalance", vo);
 	}
 	
 	public void witpluswit(String wit_money) {
 	ss.insert("bangking.witpluswit", wit_money);
 	}
-	public void witplussp(Map<String, String> paramapsp ) {
-	ss.insert("bangking.witplussp", paramapsp );
+	public void witplussp(Bangking_viewVO vo) {
+	ss.insert("bangking.witplussp", vo );
 	}
-	public void witwitupbalance(Map<String, String> paramapbal) {
-	ss.update("bangking.witwitupbalance", paramapbal);
+	public void witwitupbalance(Bangking_viewVO vo) {
+	ss.update("bangking.witwitupbalance", vo);
 	}
 	///////////////////////////////////////////////////////////출금종료/@
 	

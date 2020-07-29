@@ -18,24 +18,14 @@ where a.ac_code=ac.ac_code and ac.mem_code =m.mem_code and ac_num=#{ac_num}
 			where ac_num=#{ac_num}
 	  	</select>
 	  	
-	  	<!-- 계좌번호를 넣으면 멤버코드를 가져온다.(변경) -->
-	  	<select id="actomemnum" parameterType="String" resultType="int">
-<!-- 			select mem_code -->
-<!-- 			from account -->
-<!-- 			where ac_num=#{acnum} -->
-			select ac.mem_code mem_code
-			from account a
-				, account_client ac
-			where a.ac_num=#{ac_num} 
-				and a.ac_code=ac.ac_code
-	  	</select>
+	
 	  	
 		<!--2입금테이블을 작성한다. -->
 	  	<insert id="depplusdep" parameterType="String">
 	  		insert into deposit values(deposit_seq.nextval,#{dep_money},sysdate)
 	  	</insert>
 		<!--3.입출금처리 테이블작성 -->
-	  	<insert id="depplussp" parameterType="hashMap">
+	  	<insert id="depplussp" parameterType="bvo">
 		insert into sav_process values(sav_process_seq.nextval
 			,(select a.ac_code ac_code
 				from account a
@@ -61,7 +51,7 @@ where a.ac_code=ac.ac_code and ac.mem_code =m.mem_code and ac_num=#{ac_num}
 		)
 	  	</insert>
 		<!--마지막 바뀐통장 잔액 업데이트한다 -->
-	  	<update id="depdepupbalance" parameterType="hashMap">
+	  	<update id="depdepupbalance" parameterType="bvo">
 		update account 
 			set ac_balance=(select sp_balance 
 			                from sav_process 
@@ -84,7 +74,7 @@ where a.ac_code=ac.ac_code and ac.mem_code =m.mem_code and ac_num=#{ac_num}
 			where ac_num=#{ac_num}
 	  	</select>
 		<!--2계좌에 출금할수있는 잔액이 있는지 검사 -->
-		<select id="witcheckbalance" parameterType="hashMap" resultType="String">
+		<select id="witcheckbalance" parameterType="bvo" resultType="String">
 			select a.ac_balance ac_balance
 			from account a
 				, account_client ac
@@ -97,7 +87,7 @@ where a.ac_code=ac.ac_code and ac.mem_code =m.mem_code and ac_num=#{ac_num}
 	  		insert into withdraw values(WITHDRAW_SEQ.nextval,#{wit_money},sysdate)
 	  	</insert>
 		<!--4입출금내역 작성 -->
-	  	<insert id="witplussp" parameterType="hashMap">
+	  	<insert id="witplussp" parameterType="bvo">
 		  	insert into sav_process values(sav_process_seq.nextval
 				,(select a.ac_code ac_code
 				from account a
@@ -123,7 +113,7 @@ where a.ac_code=ac.ac_code and ac.mem_code =m.mem_code and ac_num=#{ac_num}
 	  	
 	  	</insert>
 		<!--5잔액 업데이트 -->
-		<update id="witwitupbalance" parameterType="hashMap">
+		<update id="witwitupbalance" parameterType="bvo">
 			update account 
 			set ac_balance=(select sp_balance 
 			                from sav_process 

@@ -22,7 +22,7 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Grid("Grid00","0","0","200","700",null,null,null,null,null,null,this);
+            obj = new Grid("Grid00","0","0","200","660",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_binddataset("Dataset00");
             obj.set_treeinitstatus("expand,all");
