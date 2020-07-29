@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <FDL version="2.1">
-  <Form id="Deposit" width="1280" height="720" titletext="New Form">
+  <Form id="Deposit" width="824" height="714" titletext="New Form">
     <Layouts>
-      <Layout height="720" mobileorientation="landscape" width="1280">
-        <Div id="Div00" taborder="0" text="Div00" left="200" top="127" width="1015" height="527" border="2px solid">
+      <Layout height="714" mobileorientation="landscape" width="824">
+        <Div id="Div00" taborder="0" text="Div00" left="30" top="27" width="1015" height="527" border="2px solid">
           <Layouts>
             <Layout>
-              <Edit id="ac_numv" taborder="0" left="175" top="70" width="205" height="66"/>
-              <Static id="Static00" taborder="1" text="계좌번호" left="24" top="72" width="130" height="65" font="24px/normal &quot;Gulim&quot;"/>
-              <Button id="Button00" taborder="2" text="계좌조회" left="428" top="72" width="134" height="66" onclick="Div00_Button00_onclick"/>
+              <Edit id="ac_numv" taborder="0" left="309" top="68" width="205" height="66"/>
+              <Static id="Static00" taborder="1" text="계좌번호" left="158" top="70" width="130" height="65" font="24px/normal &quot;Gulim&quot;"/>
+              <Button id="Button00" taborder="2" text="계좌조회" left="562" top="70" width="134" height="66" onclick="Div00_Button00_onclick"/>
               <Div id="Div00" taborder="3" text="Div00" left="32" top="341" width="946" height="175" border="3px dotted">
                 <Layouts>
                   <Layout>
@@ -25,7 +25,7 @@
                   </Layout>
                 </Layouts>
               </Div>
-              <Grid id="Grid00" taborder="4" left="37" top="177" width="941" height="124" binddataset="Account">
+              <Grid id="Grid00" taborder="4" left="32" top="168" width="941" height="124" binddataset="Account">
                 <Formats>
                   <Format id="default">
                     <Columns>
@@ -77,7 +77,6 @@
             </Layout>
           </Layouts>
         </Div>
-        <Combo id="Combo00" taborder="1" text="Combo00" left="44" top="37" width="70" height="59"/>
       </Layout>
     </Layouts>
     <Objects>
@@ -128,10 +127,11 @@ this.Div00_Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickE
 	var ac_numv =this.Account.getColumn(0,'계좌번호')
 	var mem_codev = this.Account.getColumn(0,'멤버코드')
 	
+	this.alert(deposit_moneyv+","+deposit_spnamev+","+ac_numv+","+mem_codev)
 	var id="deposit";
-	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/deposit?ac_num="+ac_numv+"&mem_code="+mem_codev+"&money="+deposit_moneyv+"&sp_name"+deposit_spnamev;
+	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/deposit?ac_num="+ac_numv+"&mem_code="+mem_codev+"&money="+deposit_moneyv+"&sp_name="+deposit_spnamev;
 	var reqDs = "";
-	var respDs="Account=ar";
+	var respDs="";
 	var args ="";
 	var callback ="received";
 	this.transaction(id,url,reqDs,respDs,args,callback);
@@ -147,21 +147,40 @@ this.Div00_Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickE
 	this.Div00.form.Div00.form.withdraw_moneyv.set_readonly(true)
 	this.Div00.form.Div00.form.withdraw_spnamev.set_readonly(true)
 	this.Div00.form.Div00.form.deposit_spnamev.set_readonly(true)
+	this.Div00.form.Div00.form.deposit_moneyv.set_value('')
+	this.Div00.form.Div00.form.deposit_spnamev.set_value('')
 	this.Account.deleteAll()
 };
 //출금하기
 this.Div00_Div00_Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-	var witdraw_moneyv = this.Div00.form.Div00.form.witdraw_moneyv.value
+	var witdraw_moneyv = this.Div00.form.Div00.form.withdraw_moneyv.value
 	var withdraw_spnamev = this.Div00.form.Div00.form.withdraw_spnamev.value
+	var ac_numv =this.Account.getColumn(0,'계좌번호')
+	var mem_codev = this.Account.getColumn(0,'멤버코드')
 	
+	this.alert(witdraw_moneyv+","+withdraw_spnamev+","+ac_numv+","+mem_codev)
 	
+	var id="withdraw";
+	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/withdraw?ac_num="+ac_numv+"&mem_code="+mem_codev+"&money="+witdraw_moneyv+"&sp_name="+withdraw_spnamev;
+	var reqDs = "";
+	var respDs="";
+	var args ="";
+	var callback ="received";
+	this.transaction(id,url,reqDs,respDs,args,callback);
+	this.received=function(id,code,message)
+	{
+		
+		
+	};
 	
 	
 	this.Div00.form.Div00.form.deposit_moneyv.set_readonly(true)
 	this.Div00.form.Div00.form.withdraw_moneyv.set_readonly(true)
 	this.Div00.form.Div00.form.withdraw_spnamev.set_readonly(true)
 	this.Div00.form.Div00.form.deposit_spnamev.set_readonly(true)
+	this.Div00.form.Div00.form.withdraw_moneyv.set_value('')
+	this.Div00.form.Div00.form.withdraw_spnamev.set_value('')
 	this.Account.deleteAll()
 };
 ]]></Script>

@@ -3,7 +3,7 @@
   <Form id="Form_Left" width="200" height="700" titletext="Form_Left">
     <Layouts>
       <Layout width="200" height="700" screenid="Desktop_screen">
-        <Grid id="Grid00" taborder="0" left="0" top="0" width="200" height="700" binddataset="Dataset00" treeinitstatus="expand,all" treeusecheckbox="false" oncellclick="fn_cellclick">
+        <Grid id="Grid00" taborder="0" left="0" top="0" width="200" height="660" binddataset="Dataset00" treeinitstatus="expand,all" treeusecheckbox="false" oncellclick="fn_cellclick">
           <Formats>
             <Format id="default">
               <Columns>

@@ -3,7 +3,7 @@
   <Form id="Loan" width="1280" height="720" titletext="New Form">
     <Layouts>
       <Layout height="720" mobileorientation="landscape" width="1280">
-        <Div id="Div00" taborder="1" left="362" top="150" width="298" height="175" border="1px solid">
+        <Div id="Div00" taborder="0" left="420" top="263" width="298" height="175" border="1px solid">
           <Layouts>
             <Layout>
               <Edit id="hd_id" taborder="0" left="116" top="44" width="119" height="26"/>
@@ -15,36 +15,6 @@
             <Layout name="screen00"/>
           </Layouts>
         </Div>
-        <Grid id="Grid00" taborder="0" left="716" top="111" width="312" height="243" binddataset="login">
-          <Formats>
-            <Format id="default">
-              <Columns>
-                <Column size="80"/>
-                <Column size="80"/>
-                <Column size="80"/>
-                <Column size="80"/>
-              </Columns>
-              <Rows>
-                <Row band="head" size="24"/>
-                <Row size="24"/>
-              </Rows>
-              <Band id="head">
-                <Cell text="hd_id"/>
-                <Cell col="1" text="hd_pw"/>
-                <Cell col="2" text="check"/>
-                <Cell col="3" text="level"/>
-              </Band>
-              <Band id="body">
-                <Cell text="bind:hd_id"/>
-                <Cell col="1" text="bind:hd_pw"/>
-                <Cell col="2" text="bind:check"/>
-                <Cell col="3" text="bind:level"/>
-              </Band>
-            </Format>
-          </Formats>
-        </Grid>
-        <Button id="Button02" taborder="2" text="지금누구" left="329" top="385" width="92" height="40" onclick="Button02_onclick"/>
-        <Button id="Button03" taborder="3" text="로그아웃" left="451" top="386" width="74" height="45" onclick="Button03_onclick"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[onload=function(){
