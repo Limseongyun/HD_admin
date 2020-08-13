@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("login", this);
-            obj._setContents("<ColumnInfo><Column id=\"hd_id\" type=\"STRING\" size=\"256\"/><Column id=\"hd_pw\" type=\"STRING\" size=\"256\"/><Column id=\"check\" type=\"STRING\" size=\"256\"/><Column id=\"level\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"hd_code\" type=\"STRING\" size=\"256\"/><Column id=\"hd_pw\" type=\"STRING\" size=\"256\"/><Column id=\"check\" type=\"STRING\" size=\"256\"/><Column id=\"level\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -27,7 +27,7 @@
             obj.set_border("1px solid");
             this.addChild(obj.name, obj);
 
-            obj = new Edit("hd_id","116","44","119","26",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("hd_code","116","44","119","26",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
             this.Div00.addChild(obj.name, obj);
 
@@ -49,6 +49,11 @@
             obj.set_taborder("4");
             obj.set_text("로그인");
             this.Div00.addChild(obj.name, obj);
+
+            obj = new ImageViewer("ImageViewer00","76","81","255","399",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
+            obj.set_text("ImageViewer00");
+            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -83,9 +88,9 @@
         {
         	//this.go("FrameBase::Form_Work.xfdl");
         	//this.Grid00=this.login
-        	var hd_id=this.Div00.form.hd_id.value
+        	var hd_code=this.Div00.form.hd_code.value
         	var hd_pw=this.Div00.form.hd_pw.value
-        	if((hd_id !=null) && (hd_pw !=null)){
+        	if((hd_code !=null) && (hd_pw !=null)){
         		//this.alert(hd_id+hd_pw)
         		//alert(this.login.getRowCount())
         		//alert(this.login.getColCount())
@@ -94,7 +99,7 @@
         		//this.login.deleteAll();
         		//this.login.rowposition
         		var id="login";
-        		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/login?hd_id="+hd_id+"&hd_pw="+hd_pw;
+        		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_pw="+hd_pw;
         		var reqDs = "";
         		var respDs="login=ar";//
         		var args ="";
@@ -197,6 +202,11 @@
 
         };
 
+        this.ImageViewer00_onclick = function(obj,e)
+        {
+        	this.imageviewerMain.set_stretch('AnyConvcom');
+        };
+
         });
         
         // Regist UI Components Event
@@ -204,6 +214,7 @@
         {
             this.Div00.form.Static00_00.addEventHandler("onclick",this.Div00_Static00_00_onclick,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
+            this.ImageViewer00.addEventHandler("onclick",this.ImageViewer00_onclick,this);
         };
 
         this.loadIncludeScript("Loan.xfdl");

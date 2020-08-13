@@ -333,6 +333,8 @@
         	{
         		//alert(id+","+code+","+message);
 
+        		this.test()
+
         	};
 
         };
@@ -340,7 +342,9 @@
         this.stateupdate = function (state,lc_num)
         {
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/stateupdate?lc_state="+state+"&lc_num="+lc_num;
+
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/stateupdate?lc_state="+state+"&lc_num="+lc_num;
+
         	var reqDs = "";
         	var respDs = "";
         	var args = "";
@@ -372,10 +376,12 @@
 
         this.test = function ()
         {
+
         	var filename = "g1.jpg";
         	var filedir = "resources\\upload\\101"
 
         	var id = "urlTest01";
+        	var url = "Service::filedown.jpg"
 
         	var reqDs = "";
         	var respDs = ""; //데이터 셋을 response
@@ -392,6 +398,7 @@
         	};
 
         };
+
 
 
         this.Div00_Button00_onclick = function(obj,e)
@@ -414,6 +421,7 @@
         {
         	this.alert("sueccess")
         };
+
 
 
         });

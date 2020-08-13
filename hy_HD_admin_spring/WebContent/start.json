@@ -103,14 +103,6 @@
         "xadl" :
         [
         {
-        	"screenid":"screen00",
-        	"launch":"./Application_Desktop_1.xadl.js",
-        	"quickview":"./Application_Desktop_1.xadl.quickview.js",
-        	"form":[
-        				"./Base/Loan.xfdl.js"
-        	]
-        },
-        {
         	"screenid":"Desktop_screen",
         	"launch":"./Application_Desktop.xadl.js",
         	"quickview":"./Application_Desktop.xadl.quickview.js",
@@ -118,6 +110,14 @@
         				"./FrameBase/Form_Top.xfdl.js",
         		"./FrameBase/Form_Left.xfdl.js",
         		"./FrameBase/Form_Work.xfdl.js"
+        	]
+        },
+        {
+        	"screenid":"screen00",
+        	"launch":"./Application_Desktop_1.xadl.js",
+        	"quickview":"./Application_Desktop_1.xadl.quickview.js",
+        	"form":[
+        				"./Base/Loan.xfdl.js"
         	]
         }
         ],  

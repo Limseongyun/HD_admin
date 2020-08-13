@@ -1,17 +1,18 @@
 package mvc.vo;
 /*
- * HD_CODE    NOT NULL NUMBER        
+ * 
+ * 자주 변동될수 있음;
+HD_CODE    NOT NULL NUMBER        
 HD_LEVEL   NOT NULL VARCHAR2(30)  
-HD_IN_DATE NOT NULL DATE          
+HD_IN_DATE NOT NULL VARCHAR2(50)  
 HD_NAME    NOT NULL VARCHAR2(30)  
-HD_BIRTH   NOT NULL DATE          
+HD_BIRTH   NOT NULL VARCHAR2(50)  
 HD_DNAME            VARCHAR2(30)  
 HD_GENDER           VARCHAR2(30)  
 HD_PHN     NOT NULL VARCHAR2(30)  
 HD_EMAIL            VARCHAR2(30)  
 HD_LOC              VARCHAR2(100) 
-HD_ID      NOT NULL VARCHAR2(32)  
-HD_PW      NOT NULL VARCHAR2(32)  
+HD_PW      NOT NULL VARCHAR2(255)  
 
  * 
  * */
@@ -19,7 +20,7 @@ public class EmployeeVO{
 
 	private int hd_code;
 	private String hd_level,hd_in_date,hd_name,hd_birth,hd_dname
-			,hd_gender,hd_phn,hd_email,hd_loc,hd_id,hd_pw;
+			,hd_gender,hd_phn,hd_email,hd_loc,hd_pw;
 	public int getHd_code() {
 		return hd_code;
 	}
@@ -80,12 +81,7 @@ public class EmployeeVO{
 	public void setHd_loc(String hd_loc) {
 		this.hd_loc = hd_loc;
 	}
-	public String getHd_id() {
-		return hd_id;
-	}
-	public void setHd_id(String hd_id) {
-		this.hd_id = hd_id;
-	}
+	
 	public String getHd_pw() {
 		return hd_pw;
 	}

@@ -22,13 +22,14 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Menu("Menu00","200","0","310","50",null,null,null,null,null,null,this);
+            obj = new Menu("Menu00","200","0","446","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_innerdataset("Dataset0");
             obj.set_captioncolumn("menu_name");
             obj.set_idcolumn("menu_id");
             obj.set_levelcolumn("menu_level");
             obj.set_background("#1369D8");
+            obj.set_color("blue");
             this.addChild(obj.name, obj);
 
             obj = new Div("Div00","0","0","200","50",null,null,null,null,null,null,this);
@@ -38,7 +39,8 @@
 
             obj = new ImageViewer("ImageViewer00","0","0","199","50",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("0");
-            obj.set_text("ImageViewer00");
+            obj.set_text("");
+            obj.set_background("#1369D8");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("Button00","905","7","97","35",null,null,null,null,null,null,this);
