@@ -45,7 +45,7 @@ this.Loan_detail_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
 	lc_num = this.parent.lc_num.value
 	
 		var id = "urlTest01";
-		var url = "http://192.168.0.18:8080/hy_HD_admin_spring/getdetail?lc_num="+lc_num;
+		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/getdetail?lc_num="+lc_num;
 		var reqDs = "";
 		var respDs = " detail=ar"; //데이터 셋을 response
 		var args = "";

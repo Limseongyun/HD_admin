@@ -8,33 +8,6 @@
       <XCSS rule_version="1.04"/>
       <Script rule_version="1.02"/>
     </Rule>
-    <Info project="C:\ikosmo64\spring\hdspace\gitadmin\HD_admin\hy_HD_admin_nexacro\" generated="C:\ikosmo64\spring\hdspace\gitadmin\HD_admin\hy_HD_admin_spring\WebContent\">
-      <File url="environment.xml" checksum="20200728124351" errormsg=""/>
-      <File url="typedefinition.xml" checksum="20200728150604" errormsg=""/>
-      <File url="appvariables.xml" checksum="20200724160433" errormsg=""/>
-      <File url="FrameBase\Loan_screening.xfdl" checksum="20200728145546" errormsg=""/>
-      <File url="_resource_\_theme_\default\theme.xcss" checksum="20200724160434" errormsg=""/>
-      <File url="Application_Desktop.xadl" checksum="20200724160433" errormsg=""/>
-      <File url="Application_Desktop_1.xadl" checksum="20200724160432" errormsg=""/>
-      <File url="FrameBase\popup_modal.xfdl" checksum="20200727121433" errormsg=""/>
-      <File url="FrameBase\popup_open.xfdl" checksum="20190718195821" errormsg=""/>
-      <File url="FrameBase\popupsample.xfdl" checksum="20200727110259" errormsg=""/>
-      <File url="FrameBase\Loan_detail.xfdl" checksum="20200727160350" errormsg=""/>
-      <File url="FrameBase\popupconf.xjs" checksum="20200727121433" errormsg=""/>
-      <File url="FrameBase\popup.xjs" checksum="20200727104556" errormsg=""/>
-      <File url="FrameBase\Loan_file.xfdl" checksum="20200727200511" errormsg=""/>
-      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\framework\Framework.json" checksum="20200527181350" errormsg=""/>
-      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\resources\Resource.json" checksum="20200527181350" errormsg=""/>
-      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\CompBase.json" checksum="20200527181348" errormsg=""/>
-      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ComComp.json" checksum="20200527181348" errormsg=""/>
-      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\Grid.json" checksum="20200527181348" errormsg=""/>
-      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ListView.json" checksum="20200527181350" errormsg=""/>
-      <File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\DeviceAPI.json" checksum="20200527181348" errormsg=""/>
-      <File url="FrameBase\fileupdown_form.xfdl" checksum="20200728130601" errormsg=""/>
-      <File url="_resource_\_theme_\11\theme.xcss" checksum="20200728113019" errormsg=""/>
-      <File url="FrameBase\filedown.jsp.xjs" checksum="20200728114640" errormsg=""/>
-      <File url="FrameBase\filetransupdown.xfdl" checksum="20200728151010" errormsg=""/>
-      <File url="FrameBase\loan_product.xfdl" checksum="20200725171624" errormsg=""/>
-    </Info>
+    <Info project="C:\ikosmo64\spring\hyadmingit\HD_admin\hy_HD_admin_nexacro\" generated="C:\ikosmo64\spring\hyadmingit\HD_admin\hy_HD_admin_spring\WebContent\"><File url="environment.xml" checksum="20200728183304" errormsg=""/><File url="typedefinition.xml" checksum="20200728183304" errormsg=""/><File url="appvariables.xml" checksum="20200724154525" errormsg=""/><File url="_resource_\_theme_\default\theme.xcss" checksum="20200724154528" errormsg=""/><File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\framework\Framework.json" checksum="20200527181350" errormsg=""/><File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\resources\Resource.json" checksum="20200527181350" errormsg=""/><File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\CompBase.json" checksum="20200527181348" errormsg=""/><File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ComComp.json" checksum="20200527181348" errormsg=""/><File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\Grid.json" checksum="20200527181348" errormsg=""/><File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\ListView.json" checksum="20200527181350" errormsg=""/><File url="C:\Program Files (x86)\nexacro\17.1\nexacro17lib\component\DeviceAPI.json" checksum="20200527181348" errormsg=""/><File url="FrameBase\Deposit.xfdl" checksum="20200729121208" errormsg=""/><File url="Application_Desktop_1.xadl" checksum="20200724154525" errormsg=""/><File url="Application_Desktop.xadl" checksum="20200724154527" errormsg=""/><File url="Base\Loan.xfdl" checksum="20200813102700" errormsg=""/><File url="FrameBase\Account_Product.xfdl" checksum="20200729121049" errormsg=""/><File url="FrameBase\Form_Left.xfdl" checksum="20200729111629" errormsg=""/><File url="FrameBase\Form_Top.xfdl" checksum="20200813100959" errormsg=""/></Info>
   </GenInfo>
 </root>

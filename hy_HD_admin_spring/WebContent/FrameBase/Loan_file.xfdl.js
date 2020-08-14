@@ -53,6 +53,7 @@
         };
         
         // User Script
+
         this.registerScript("Loan_file.xfdl", function() {
 
         this.Loan_file_onload = function(obj,e)
@@ -143,6 +144,7 @@
 
         	this.fileDownTrans.download("C:\\ikosmo64\\spring\\hdspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\project_Dank\\resources\\upload\\101\\g1.jpg");
         }
+
 
 
         });

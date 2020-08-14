@@ -203,7 +203,7 @@
         this.getlp_name= function(obj,e)
         {
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/lpname";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/lpname";
         	var reqDs = "";
         	var respDs = " lp_name=ar"; //데이터 셋을 response
         	var args = "";
@@ -240,7 +240,7 @@
         {
 
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/getscreen";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/getscreen";
         	var reqDs = "";
         	var respDs = " screen=ar"; //데이터 셋을 response
         	var args = "";
@@ -259,7 +259,7 @@
         this.getlcnum= function(obj,e)
         {
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/lcnum";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/lcnum";
         	var reqDs = "";
         	var respDs = " lc_num=ar"; //데이터 셋을 response
         	var args = "";
@@ -320,7 +320,7 @@
         	//this.alert(name)
         	}
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/searchscreen?from_dt="+startdate+"&to_dt="+enddate+"&mem_name="+name+"&lc_state="+state+"&lp_name="+lp_name+"&lc_num="+lc_numv;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/searchscreen?from_dt="+startdate+"&to_dt="+enddate+"&mem_name="+name+"&lc_state="+state+"&lp_name="+lp_name+"&lc_num="+lc_numv;
         	var reqDs = "";
         	var respDs = " screen=ar"; //데이터 셋을 response
         	var args = "";
@@ -333,6 +333,8 @@
         	{
         		//alert(id+","+code+","+message);
 
+        		this.test()
+
         	};
 
         };
@@ -340,7 +342,9 @@
         this.stateupdate = function (state,lc_num)
         {
         	var id = "urlTest01";
+
         	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/stateupdate?lc_state="+state+"&lc_num="+lc_num;
+
         	var reqDs = "";
         	var respDs = "";
         	var args = "";
@@ -372,11 +376,13 @@
 
         this.test = function ()
         {
+
         	var filename = "g1.jpg";
         	var filedir = "resources\\upload\\101"
 
         	var id = "urlTest01";
         	var url = "Service::filedown.jpg"
+
         	var reqDs = "";
         	var respDs = ""; //데이터 셋을 response
         	var args = "";
@@ -392,6 +398,7 @@
         	};
 
         };
+
 
 
         this.Div00_Button00_onclick = function(obj,e)
@@ -414,6 +421,7 @@
         {
         	this.alert("sueccess")
         };
+
 
 
         });

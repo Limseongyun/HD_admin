@@ -3,11 +3,11 @@
   <Form id="Loan" width="1280" height="720" titletext="New Form">
     <Layouts>
       <Layout height="720" mobileorientation="landscape" width="1280">
-        <Div id="Div00" taborder="1" left="362" top="150" width="298" height="175" border="1px solid">
+        <Div id="Div00" taborder="0" left="420" top="263" width="298" height="175" border="1px solid">
           <Layouts>
             <Layout>
-              <Edit id="Edit00" taborder="0" left="116" top="44" width="119" height="26"/>
-              <Edit id="Edit00_00" taborder="1" left="116" top="84" width="119" height="26"/>
+              <Edit id="hd_code" taborder="0" left="116" top="44" width="119" height="26"/>
+              <Edit id="hd_pw" taborder="1" left="116" top="84" width="119" height="26"/>
               <Static id="Static00" taborder="2" text="사번" left="53" top="47" width="43" height="23"/>
               <Static id="Static00_00" taborder="3" text="비밀번호" left="53" top="83" width="53" height="23" onclick="Div00_Static00_00_onclick"/>
               <Button id="Button00" taborder="4" text="로그인" left="104" top="130" width="87" height="28" onclick="Div00_Button00_onclick"/>
@@ -15,6 +15,7 @@
             <Layout name="screen00"/>
           </Layouts>
         </Div>
+        <ImageViewer id="ImageViewer00" taborder="1" text="ImageViewer00" left="76" top="81" width="255" height="399" onclick="ImageViewer00_onclick"/>
       </Layout>
     </Layouts>
     <Script type="xscript5.1"><![CDATA[onload=function(){
@@ -31,10 +32,136 @@ var screeninfo = [
 
 this.Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
-this.go("FrameBase::Form_Work.xfdl");
-	//onload()
-
+	//this.go("FrameBase::Form_Work.xfdl");
+	//this.Grid00=this.login
+	var hd_code=this.Div00.form.hd_code.value
+	var hd_pw=this.Div00.form.hd_pw.value
+	if((hd_code !=null) && (hd_pw !=null)){
+		//this.alert(hd_id+hd_pw)
+		//alert(this.login.getRowCount())
+		//alert(this.login.getColCount())
+		//this.login.deleteColumn(0)
+		//this.login.deleteRow(0)
+		//this.login.deleteAll();
+		//this.login.rowposition
+		var id="login";
+		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_pw="+hd_pw;
+		var reqDs = "";
+		var respDs="login=ar";//
+		var args ="";
+		var callback ="received";
+		this.transaction(id,url,reqDs,respDs,args,callback);
+		this.received=function(id,code,message)
+		{
+			//alert(id+","+code+","+message);
+			//this.alert('checked')
+			/*
+			var i=0
+			while (i<5)
+			{
+				this.alert(this.login.getColumn(i,"check"))
+				i++
+			}*/
+			
+			if(this.login.getColumn(0,"check")=='ok'){
+				//this.alert('go')
+				this.go("FrameBase::Form_Work.xfdl");
+			}
+			
+		};
+		
+		//this.alert('찍히긴함?')
+		
+		}
+	//whoareyou()
 };
- ]]></Script>
+whoareyou=function(){
+	this.alert("asdf")
+	
+}
+
+//ㄴㄴ무시
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.alert("왜안대뮤")
+
+	var arrCookie = a//window.document.cookie;
+    arrCookie = arrCookie.split(";");
+	this.alert("넥사크로넣기전ㄴ"+arrCookie)
+	//nexacro.setCookieVariable('logininfo',arrCookie.split("=")[1],false)
+	
+	
+	
+    var arrTempCookie;
+    this.TextArea00.set_value("");
+    for(var i=0; i<arrCookie.length; i++)
+    {
+        arrTempCookie = arrCookie[i].split("=");
+        this.TextArea00.set_value(this.TextArea00.value 
+            + ( arrTempCookie[0].trim() + " : " + arrTempCookie[1] ) + "\n");
+    }  
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.alert("넥사크로에서뽑아온값"+nexacro.getCookieVariable('logininfo',false))
+	
+};
+
+this.Button03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	//로그아웃
+		var id="logout";
+		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logout";
+		var reqDs = "";
+		var respDs="";//
+		var args ="";
+		var callback ="received";
+		this.transaction(id,url,reqDs,respDs,args,callback);
+		this.received=function(id,code,message)
+		{
+			//alert(id+","+code+","+message);
+		};
+		
+		//this.alert('찍히긴함?')
+		
+		
+};
+//로그인체크
+this.Button02_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+		var id="logincheck";
+		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logincheck";
+		var reqDs = "";
+		var respDs="login=ar";//
+		var args ="";
+		var callback ="received";
+		this.transaction(id,url,reqDs,respDs,args,callback);
+		this.received=function(id,code,message)
+		{
+			alert(id+","+code+","+message);
+		};
+		
+		
+		
+		
+	
+};
+
+this.ImageViewer00_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEventInfo)
+{
+	this.imageviewerMain.set_stretch('AnyConvcom');
+};
+]]></Script>
+    <Objects>
+      <Dataset id="login">
+        <ColumnInfo>
+          <Column id="hd_code" type="STRING" size="256"/>
+          <Column id="hd_pw" type="STRING" size="256"/>
+          <Column id="check" type="STRING" size="256"/>
+          <Column id="level" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
   </Form>
 </FDL>

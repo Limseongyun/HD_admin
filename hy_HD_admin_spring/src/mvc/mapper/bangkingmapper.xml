@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="bangking">
+<select id="getaccount" parameterType="String" resultType="bvo">
+select a.ac_code ac_code,a.ac_num ac_num,a.ac_balance ac_balance,a.ac_name ac_name,a.ac_start_date ac_start_date
+        ,a.ac_end_date ac_end_date,m.mem_name mem_name,m.mem_gender mem_gender,m.mem_phn mem_phn,m.mem_job mem_job,m.mem_code mem_code
+from account a, account_client ac,member m 
+where a.ac_code=ac.ac_code and ac.mem_code =m.mem_code and ac_num=#{ac_num}
+</select>
+
+<!-- @입금 시작(입금 누르면 돈이 들어온다. 지점에서 현금을 받는다는 가정) -->
+		<!--1계좌유효성검사 적힌 계좌가 DB에 담겨있는지 count 를 반환한다 -->
+		<select id="depcheckac" parameterType="String" resultType="int">
+			select count(*)
+			from account
+			where ac_num=#{ac_num}
+	  	</select>
+	  	
+	
+	  	
+		<!--2입금테이블을 작성한다. -->
+	  	<insert id="depplusdep" parameterType="String">
+	  		insert into deposit values(deposit_seq.nextval,#{dep_money},sysdate)
+	  	</insert>
+		<!--3.입출금처리 테이블작성 -->
+	  	<insert id="depplussp" parameterType="bvo">
+		insert into sav_process values(sav_process_seq.nextval
+			,(select a.ac_code ac_code
+				from account a
+					, account_client ac
+			where a.ac_num=#{ac_num}
+				 and ac.mem_code=#{mem_code}
+				  and a.ac_code=ac.ac_code)
+			,#{sp_name}
+			,(select max(dep_code)
+			            from deposit)
+			,null
+			,null
+			,( select a.ac_balance ac_balance
+					from account a
+						, account_client ac
+					where a.ac_num=#{ac_num}
+						 and ac.mem_code=#{mem_code} 
+						 and a.ac_code=ac.ac_code)
+			+(select dep_money 
+		            from deposit 
+		            where dep_code=(select max(dep_code) 
+		                               from deposit))
+		)
+	  	</insert>
+		<!--마지막 바뀐통장 잔액 업데이트한다 -->
+	  	<update id="depdepupbalance" parameterType="bvo">
+		update account 
+			set ac_balance=(select sp_balance 
+			                from sav_process 
+			                where sp_code=(select max(sp_code) 
+			                                from sav_process))
+			where ac_code=
+			    (select a.ac_code ac_code
+				from account a
+					, account_client ac
+				where a.ac_num=#{ac_num}
+					 and ac.mem_code=#{mem_code}
+					  and a.ac_code=ac.ac_code)
+	  	</update>
+<!-- /@입금 끝 -->
+<!-- @출금시작 -->
+		<!--1계좌가 DB에 있는지검사 -->
+	  	<select id="witcheckac" parameterType="String" resultType="int">
+			select count(*)
+			from account
+			where ac_num=#{ac_num}
+	  	</select>
+		<!--2계좌에 출금할수있는 잔액이 있는지 검사 -->
+		<select id="witcheckbalance" parameterType="bvo" resultType="String">
+			select a.ac_balance ac_balance
+			from account a
+				, account_client ac
+			where a.ac_num=#{ac_num}
+				 and ac.mem_code=#{mem_code} 
+				 and a.ac_code=ac.ac_code
+		</select>
+		<!--3출금표 작성 -->
+	  	<insert id="witpluswit" parameterType="String"> 		
+	  		insert into withdraw values(WITHDRAW_SEQ.nextval,#{wit_money},sysdate)
+	  	</insert>
+		<!--4입출금내역 작성 -->
+	  	<insert id="witplussp" parameterType="bvo">
+		  	insert into sav_process values(sav_process_seq.nextval
+				,(select a.ac_code ac_code
+				from account a
+					, account_client ac
+				where a.ac_num=#{ac_num}
+					 and ac.mem_code=#{mem_code}
+					  and a.ac_code=ac.ac_code )
+				,#{sp_name}
+				,null
+				,(select max(WIT_CODE)
+				            from withdraw)
+				,null
+				,(select a.ac_balance ac_balance
+				 from account a
+				 	, account_client ac
+				where a.ac_num=#{ac_num}
+					 and ac.mem_code=#{mem_code}
+					  and a.ac_code=ac.ac_code)-(select wit_money 
+							                       from withdraw
+							                       where wit_code=(select max(wit_code) 
+							                                          from withdraw))
+			)
+	  	
+	  	</insert>
+		<!--5잔액 업데이트 -->
+		<update id="witwitupbalance" parameterType="bvo">
+			update account 
+			set ac_balance=(select sp_balance 
+			                from sav_process 
+			                where sp_code=(select max(sp_code) 
+			                                from sav_process))
+			where ac_code=
+			    (select a.ac_code ac_code
+			    from account a
+			    	, account_client ac
+			    where a.ac_num=#{ac_num}
+			    	 and ac.mem_code=#{mem_code}
+			    	  and a.ac_code=ac.ac_code)
+		</update>
+<!-- /@출금 끝 -->
+</mapper>
