@@ -132,7 +132,7 @@
         	var ac_numv=this.Div00.form.ac_numv.value;
 
         	var id="getaccount";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/getaccount?ac_num="+ac_numv;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/getaccount?ac_num="+ac_numv;
         	var reqDs = "";
         	var respDs="Account=ar";
         	var args ="";
@@ -157,9 +157,9 @@
         	var ac_numv =this.Account.getColumn(0,'계좌번호')
         	var mem_codev = this.Account.getColumn(0,'멤버코드')
 
-        	this.alert(deposit_moneyv+","+deposit_spnamev+","+ac_numv+","+mem_codev)
+        	//this.alert(deposit_moneyv+","+deposit_spnamev+","+ac_numv+","+mem_codev)
         	var id="deposit";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/deposit?ac_num="+ac_numv+"&mem_code="+mem_codev+"&money="+deposit_moneyv+"&sp_name="+deposit_spnamev;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/deposit?ac_num="+ac_numv+"&mem_code="+mem_codev+"&money="+deposit_moneyv+"&sp_name="+deposit_spnamev;
         	var reqDs = "";
         	var respDs="";
         	var args ="";
@@ -189,10 +189,10 @@
         	var ac_numv =this.Account.getColumn(0,'계좌번호')
         	var mem_codev = this.Account.getColumn(0,'멤버코드')
 
-        	this.alert(witdraw_moneyv+","+withdraw_spnamev+","+ac_numv+","+mem_codev)
+        	//this.alert(witdraw_moneyv+","+withdraw_spnamev+","+ac_numv+","+mem_codev)
 
         	var id="withdraw";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/withdraw?ac_num="+ac_numv+"&mem_code="+mem_codev+"&money="+witdraw_moneyv+"&sp_name="+withdraw_spnamev;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/withdraw?ac_num="+ac_numv+"&mem_code="+mem_codev+"&money="+witdraw_moneyv+"&sp_name="+withdraw_spnamev;
         	var reqDs = "";
         	var respDs="";
         	var args ="";

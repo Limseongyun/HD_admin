@@ -22,7 +22,7 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Menu("Menu00","200","0","446","50",null,null,null,null,null,null,this);
+            obj = new Menu("Menu00","200","0","824","50",null,null,null,null,null,null,this);
             obj.set_taborder("0");
             obj.set_innerdataset("Dataset0");
             obj.set_captioncolumn("menu_name");
@@ -41,6 +41,8 @@
             obj.set_taborder("0");
             obj.set_text("");
             obj.set_background("#1369D8");
+            obj.set_image("url(\'imagerc::HDlogo2.png\')");
+            obj.set_border("0px solid");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Button("Button00","905","7","97","35",null,null,null,null,null,null,this);
@@ -51,6 +53,7 @@
             obj = new Edit("who","646","7","219","33",null,null,null,null,null,null,this);
             obj.set_taborder("3");
             obj.set_readonly("true");
+            obj.set_visible("false");
             this.addChild(obj.name, obj);
 
             // Layout Functions
