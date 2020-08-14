@@ -53,6 +53,7 @@
         };
         
         // User Script
+
         this.registerScript("Loan_file.xfdl", function() {
 
         this.Loan_file_onload = function(obj,e)
@@ -67,7 +68,7 @@
         this.file = function ()
         {
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/filecheck?lc_num="+lc_num;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/filecheck?lc_num="+lc_num;
         	var reqDs = "";
         	var respDs = " filecheck=ar"; //데이터 셋을 response
         	var args = "";
@@ -103,7 +104,7 @@
 
 
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/filedown?fileDir="+fileDir+"&fileName="+fileName;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/filedown?fileDir="+fileDir+"&fileName="+fileName;
         	var reqDs = "";
         	var respDs = ""; //데이터 셋을 response
         	var args = "";
@@ -143,6 +144,7 @@
 
         	this.fileDownTrans.download("C:\\ikosmo64\\spring\\hdspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp1\\wtpwebapps\\project_Dank\\resources\\upload\\101\\g1.jpg");
         }
+
 
 
         });
