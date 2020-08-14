@@ -22,9 +22,15 @@
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
-            obj = new Div("Div00","420","263","298","175",null,null,null,null,null,null,this);
+            obj = new ImageViewer("ImageViewer00","0","0","1280","720",null,null,null,null,null,null,this);
             obj.set_taborder("0");
+            obj.set_text("");
+            this.addChild(obj.name, obj);
+
+            obj = new Div("Div00","420","245","298","175",null,null,null,null,null,null,this);
+            obj.set_taborder("1");
             obj.set_border("1px solid");
+            obj.set_background("white");
             this.addChild(obj.name, obj);
 
             obj = new Edit("hd_code","116","44","119","26",null,null,null,null,null,null,this.Div00.form);
@@ -49,11 +55,6 @@
             obj.set_taborder("4");
             obj.set_text("로그인");
             this.Div00.addChild(obj.name, obj);
-
-            obj = new ImageViewer("ImageViewer00","76","81","255","399",null,null,null,null,null,null,this);
-            obj.set_taborder("1");
-            obj.set_text("ImageViewer00");
-            this.addChild(obj.name, obj);
 
             // Layout Functions
             //-- Default Layout : this
@@ -99,7 +100,7 @@
         		//this.login.deleteAll();
         		//this.login.rowposition
         		var id="login";
-        		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_pw="+hd_pw;
+        		var url = "http://192.168.0.18:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_pw="+hd_pw;
         		var reqDs = "";
         		var respDs="login=ar";//
         		var args ="";
@@ -166,7 +167,7 @@
         {
         	//로그아웃
         		var id="logout";
-        		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logout";
+        		var url = "http://192.168.0.18:8080/hy_HD_admin_spring/logout";
         		var reqDs = "";
         		var respDs="";//
         		var args ="";
@@ -212,9 +213,9 @@
         // Regist UI Components Event
         this.on_initEvent = function()
         {
+            this.ImageViewer00.addEventHandler("onclick",this.ImageViewer00_onclick,this);
             this.Div00.form.Static00_00.addEventHandler("onclick",this.Div00_Static00_00_onclick,this);
             this.Div00.form.Button00.addEventHandler("onclick",this.Div00_Button00_onclick,this);
-            this.ImageViewer00.addEventHandler("onclick",this.ImageViewer00_onclick,this);
         };
 
         this.loadIncludeScript("Loan.xfdl");
