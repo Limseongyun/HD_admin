@@ -42,7 +42,7 @@
 
         //첫화면 로딩이 되는 스크립트
         this.myload = function(obj,e){
-        	alert('asdf');
+        	//alert('asdf');
         	var url='https://192.168.0.167:3000/chatClient/';
         	//window.location.href='https://www.naver.com/';
         	window.open(url,'_blank','height=200,width=200,toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,left=0')
