@@ -41,7 +41,7 @@ this.Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventIn
 		//alert(this.login.getRowCount())
 		//alert(this.login.getColCount())
 		//this.login.deleteColumn(0)
-		//this.login.deleteRow(0)
+		//this.login.deleteRow(0) 
 		//this.login.deleteAll();
 		//this.login.rowposition
 		var id="login";
