@@ -667,7 +667,7 @@
         this.qua_div_qualification_list = function(obj,e)
         {
         	var id="qualificationlist";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/qualification_list";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/qualification_list";
         	var reqDs = "";
         	var respDs="QualificationList=ar";
         	var args ="";
@@ -685,7 +685,7 @@
         {
         	var del_qua_codev=this.Tab00.Qualification_tab.form.qua_div.form.del_qua_codev.value
         	var id="qualificationdelete";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/qualification_delete?qua_code="+del_qua_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/qualification_delete?qua_code="+del_qua_codev;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -720,7 +720,7 @@
 
 
         	var id="qualificationinsert";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/qualification_insert?qua_name="+qua_namev+"&qua_maxage="+qua_maxagev+"&qua_minage="+qua_minagev+"&qua_minmoney="+qua_minmoneyv+"&qua_maxmoney="+qua_maxmoneyv+"&qua_minperiod="+qua_minperiodv+"&qua_maxperiod="+qua_maxperiodv;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/qualification_insert?qua_name="+qua_namev+"&qua_maxage="+qua_maxagev+"&qua_minage="+qua_minagev+"&qua_minmoney="+qua_minmoneyv+"&qua_maxmoney="+qua_maxmoneyv+"&qua_minperiod="+qua_minperiodv+"&qua_maxperiod="+qua_maxperiodv;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -815,7 +815,7 @@
         	//var sav_test = this.Tab00.Saving_tab.form.shas_codev.value
         	//alert(sav_test)
         	var id="savinglist";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/saving_list";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/saving_list";
         	var reqDs = "";
         	var respDs="SavingList=ar";
         	var args ="";
@@ -839,7 +839,7 @@
         	this.Tab00.Saving_tab.form.sav_interestratev.set_value('');
 
         	var id="saving_insert";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/saving_insert?sav_name="+sav_namev+"&sav_interestrate="+sav_interestratev+"&sav_online="+sav_onlinev+"&shas_code="+shas_codev+"&qua_code="+qua_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/saving_insert?sav_name="+sav_namev+"&sav_interestrate="+sav_interestratev+"&sav_online="+sav_onlinev+"&shas_code="+shas_codev+"&qua_code="+qua_codev;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -855,7 +855,7 @@
         {
         	var del_saving_codev = this.Tab00.Saving_tab.form.del_saving_codev.value
         	var id="saving_delete";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/saving_delete?sav_code="+del_saving_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/saving_delete?sav_code="+del_saving_codev;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -871,7 +871,7 @@
         this.Tab00_Saving_tab_shas_div_shas_inquire_onclick = function(obj,e)
         {
         	var id="shared_savinglist";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/shared_saving_list";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/shared_saving_list";
         	var reqDs = "";
         	var respDs="Shared_Saving=ar";
         	var args ="";
@@ -895,7 +895,7 @@
 
 
         	var id="shared_saving_insert";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/shared_saving_insert?shas_count="+shas_countv+"&shas_master="+shas_masterv;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/shared_saving_insert?shas_count="+shas_countv+"&shas_master="+shas_masterv;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -912,7 +912,7 @@
         	var del_shas_codev = this.Tab00.Saving_tab.form.shas_div.form.del_shas_codev.value;
 
         	var id="shared_saving_delete";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/shared_saving_delete?shas_code="+del_shas_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/shared_saving_delete?shas_code="+del_shas_codev;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -942,7 +942,7 @@
         this.Tab00_Installment_Saving_tab_Div00_Shared_challenge_inquire_onclick = function(obj,e)
         {
         	var id="shared_challengelist";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/shared_challenge_list";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/shared_challenge_list";
         	var reqDs = "";
         	var respDs="Shared_Challenge=ar";
         	var args ="";
@@ -963,7 +963,7 @@
         	this.Tab00.Installment_Saving_tab.form.shac_div.form.shac_mannumv.set_value('')
         	this.Tab00.Installment_Saving_tab.form.shac_div.form.shac_masterv.set_value('')
         	var id="shared_challenge_insert";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/shared_challenge_insert?shac_mannum="+shac_mannumv+"&shac_master="+shac_masterv;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/shared_challenge_insert?shac_mannum="+shac_mannumv+"&shac_master="+shac_masterv;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -979,7 +979,7 @@
         {
         	var del_shac_codev = this.Tab00.Installment_Saving_tab.form.shac_div.form.del_shac_codev.value
         	var id="shared_challenge_delete";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/shared_challenge_delete?shac_code="+del_shac_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/shared_challenge_delete?shac_code="+del_shac_codev;
         	var reqDs = "";
         	var respDs="";
         	var args = "";
@@ -994,7 +994,7 @@
         this.Tab00_Installment_Saving_tab_installment_saving_inquire_onclick = function(obj,e)
         {
         	var id="installment_saving_list";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/installment_saving_list";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/installment_saving_list";
         	var reqDs = "";
         	var respDs="Installment_Saving=ar";
         	var args ="";
@@ -1028,7 +1028,7 @@
 
 
         	var id="installment_saving_insert";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/installment_saving_insert?ins_name="+ins_namev+"&ins_online="+ins_onlinev+"&ins_interestrate="+ins_interestratev+"&ins_droprate="+ins_dropratev+"&ins_putmoney="+ins_putmoneyv+"&ins_term="+ins_termv+"&shac_code="+shac_codev+"&qua_code="+ins_qua_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/installment_saving_insert?ins_name="+ins_namev+"&ins_online="+ins_onlinev+"&ins_interestrate="+ins_interestratev+"&ins_droprate="+ins_dropratev+"&ins_putmoney="+ins_putmoneyv+"&ins_term="+ins_termv+"&shac_code="+shac_codev+"&qua_code="+ins_qua_codev;
         	var reqDs = "";
         	var respDs="";
         	var args ="";
@@ -1044,7 +1044,7 @@
         {
         	var del_ins_codev = this.Tab00.Installment_Saving_tab.form.del_ins_codev.value
         	var id="installment_saving_delete";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/installment_saving_delete?ins_code="+del_ins_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/installment_saving_delete?ins_code="+del_ins_codev;
         	var reqDs = "";
         	var respDs="";
         	var args ="";
@@ -1081,7 +1081,7 @@
         this.Tab00_Product_tab_Button01_onclick = function(obj,e)
         {
         	var id="product_list";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/product_list";
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/product_list";
         	var reqDs = "";
         	var respDs="ProductList=ar";
         	var args ="";
@@ -1097,7 +1097,7 @@
         {
         	var del_pro_codev = this.Tab00.Product_tab.form.del_pro_codev.value
         	var id="product_delete";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/product_delete?pro_code="+del_pro_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/product_delete?pro_code="+del_pro_codev;
         	var reqDs = "";
         	var respDs="";
         	var args ="";
@@ -1125,7 +1125,7 @@
 
 
         	var id="product_insert";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/product_insert?ins_code="+ins_codev+"&sav_code="+sav_codev;
+        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/product_insert?ins_code="+ins_codev+"&sav_code="+sav_codev;
         	var reqDs = "";
         	var respDs="";
         	var args ="";
