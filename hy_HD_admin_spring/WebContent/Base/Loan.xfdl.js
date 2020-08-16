@@ -18,7 +18,7 @@
             
             // Object(Dataset, ExcelExportObject) Initialize
             obj = new Dataset("login", this);
-            obj._setContents("<ColumnInfo><Column id=\"hd_code\" type=\"STRING\" size=\"256\"/><Column id=\"hd_pw\" type=\"STRING\" size=\"256\"/><Column id=\"check\" type=\"STRING\" size=\"256\"/><Column id=\"level\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
+            obj._setContents("<ColumnInfo><Column id=\"hd_code\" type=\"STRING\" size=\"256\"/><Column id=\"hd_admin_pw\" type=\"STRING\" size=\"256\"/><Column id=\"check\" type=\"STRING\" size=\"256\"/><Column id=\"level\" type=\"STRING\" size=\"256\"/></ColumnInfo>");
             this.addChild(obj.name, obj);
             
             // UI Components Initialize
@@ -37,8 +37,9 @@
             obj.set_taborder("0");
             this.Div00.addChild(obj.name, obj);
 
-            obj = new Edit("hd_pw","116","84","119","26",null,null,null,null,null,null,this.Div00.form);
+            obj = new Edit("hd_admin_pw","116","84","119","26",null,null,null,null,null,null,this.Div00.form);
             obj.set_taborder("1");
+            obj.set_password("true");
             this.Div00.addChild(obj.name, obj);
 
             obj = new Static("Static00","53","47","43","23",null,null,null,null,null,null,this.Div00.form);
@@ -90,8 +91,8 @@
         	//this.go("FrameBase::Form_Work.xfdl");
         	//this.Grid00=this.login
         	var hd_code=this.Div00.form.hd_code.value
-        	var hd_pw=this.Div00.form.hd_pw.value
-        	if((hd_code !=null) && (hd_pw !=null)){
+        	var hd_admin_pw=this.Div00.form.hd_admin_pw.value
+        	if((hd_code !=null) && (hd_admin_pw !=null)){
         		//this.alert(hd_id+hd_pw)
         		//alert(this.login.getRowCount())
         		//alert(this.login.getColCount())
@@ -100,7 +101,7 @@
         		//this.login.deleteAll();
         		//this.login.rowposition
         		var id="login";
-        		var url = "http://192.168.0.18:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_pw="+hd_pw;
+        		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_admin_pw="+hd_admin_pw;
         		var reqDs = "";
         		var respDs="login=ar";//
         		var args ="";
@@ -167,7 +168,7 @@
         {
         	//로그아웃
         		var id="logout";
-        		var url = "http://192.168.0.18:8080/hy_HD_admin_spring/logout";
+        		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logout";
         		var reqDs = "";
         		var respDs="";//
         		var args ="";
