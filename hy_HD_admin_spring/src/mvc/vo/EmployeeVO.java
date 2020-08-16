@@ -21,6 +21,15 @@ public class EmployeeVO{
 	private int hd_code;
 	private String hd_level,hd_in_date,hd_name,hd_birth,hd_dname
 			,hd_gender,hd_phn,hd_email,hd_loc,hd_pw;
+	private String hd_admin_pw;
+	
+	
+	public String getHd_admin_pw() {
+		return hd_admin_pw;
+	}
+	public void setHd_admin_pw(String hd_admin_pw) {
+		this.hd_admin_pw = hd_admin_pw;
+	}
 	public int getHd_code() {
 		return hd_code;
 	}
