@@ -241,7 +241,6 @@ public class Loan_productController {
 	public ModelAndView stateupdate(Loan_screensearchVO vo) {
 		ModelAndView mav = new ModelAndView("redirect:/");
 		loan_productDAO.stateupdate(vo);
-
 		return mav;
 	}
 	
@@ -279,7 +278,9 @@ public class Loan_productController {
 	  }
 		mav.addObject("ds", ds);
 		return mav;
+		
 		}
+	
 	@RequestMapping(value = "/test")
 	public ModelAndView testtest() {
 		ModelAndView mav = new ModelAndView("filedown");

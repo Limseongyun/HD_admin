@@ -63,6 +63,7 @@ from loan_check lc, loan_application la, loan_product lp, member m where lc.lc_n
 	<if test="lc_num != 0">
 	and lc.lc_num = #{lc_num}
 	</if>
+	order by lc_num desc
 	</select>
 	
 	
