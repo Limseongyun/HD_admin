@@ -187,7 +187,7 @@
         this.getlp_name= function(obj,e)
         {
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/lpname";
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/lpname";
         	var reqDs = "";
         	var respDs = " lp_name=ar"; //데이터 셋을 response
         	var args = "";
@@ -224,7 +224,7 @@
         {
 
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/getscreen";
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/getscreen";
         	var reqDs = "";
         	var respDs = " screen=ar"; //데이터 셋을 response
         	var args = "";
@@ -243,7 +243,7 @@
         this.getlcnum= function(obj,e)
         {
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/lcnum";
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/lcnum";
         	var reqDs = "";
         	var respDs = " lc_num=ar"; //데이터 셋을 response
         	var args = "";
@@ -264,9 +264,7 @@
         }
         this.Grid00_oncelldblclick = function(obj,e)
         {
-        	//this.alert(this.screen.getColumn(this.screen.rowposition,"lc_num"));
         	this.lc_numv.set_value(this.screen.getColumn(this.screen.rowposition,"lc_num"))
-        	//this.alert(this.lc_numv.value)
         	var objForm = obj;
         	var objConfig = {
         						popupWidth		: 510,
@@ -275,19 +273,13 @@
         						rejection : this.rejection_onclick,
         						approval : this.approval_onclick,
         						start : this.start_onclick
-
         				    }
         	this.gfn_initForm(objForm,objConfig);
-
-
         	var oArg = {
         		lc_num : this.lc_numv
         	}
 
-
-
         	this.gfn_showModal("popupModal", oArg, "FrameBase::Loan_detail.xfdl", "popupCallBack", this, 510, 320, true, true, null);
-
         };
 
         this.Div00_searchbtn_onclick = function(obj,e)
@@ -299,26 +291,20 @@
         	var lp_name = this.Div00.form.lp_name.value;
         	var lc_numv = this.Div00.form.lc_num.value;
         	if(name == null){
-        	//this.alert(name)
         	name = 'null';
-        	//this.alert(name)
         	}
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/searchscreen?from_dt="+startdate+"&to_dt="+enddate+"&mem_name="+name+"&lc_state="+state+"&lp_name="+lp_name+"&lc_num="+lc_numv;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/searchscreen?from_dt="+startdate+"&to_dt="+enddate+"&mem_name="+name+"&lc_state="+state+"&lp_name="+lp_name+"&lc_num="+lc_numv;
         	var reqDs = "";
         	var respDs = " screen=ar"; //데이터 셋을 response
         	var args = "";
         	var callback = "received";
         	this.transaction(id,url,reqDs,respDs,args,callback);
         	this.received
-
-
         	= function (id,code,message)
         	{
         		//alert(id+","+code+","+message);
-
         	};
-
         };
 
         this.stateupdate = function (state,lc_num)

@@ -8,7 +8,7 @@
           <Layouts>
             <Layout>
               <Edit id="hd_code" taborder="0" left="116" top="44" width="119" height="26"/>
-              <Edit id="hd_admin_pw" taborder="1" left="116" top="84" width="119" height="26" password="true"/>
+              <Edit id="hd_pw" taborder="1" left="116" top="84" width="119" height="26"/>
               <Static id="Static00" taborder="2" text="사번" left="53" top="47" width="43" height="23"/>
               <Static id="Static00_00" taborder="3" text="비밀번호" left="53" top="83" width="53" height="23" onclick="Div00_Static00_00_onclick"/>
               <Button id="Button00" taborder="4" text="로그인" left="104" top="130" width="87" height="28" onclick="Div00_Button00_onclick"/>
@@ -35,17 +35,17 @@ this.Div00_Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventIn
 	//this.go("FrameBase::Form_Work.xfdl");
 	//this.Grid00=this.login
 	var hd_code=this.Div00.form.hd_code.value
-	var hd_admin_pw=this.Div00.form.hd_admin_pw.value
-	if((hd_code !=null) && (hd_admin_pw !=null)){
+	var hd_pw=this.Div00.form.hd_pw.value
+	if((hd_code !=null) && (hd_pw !=null)){
 		//this.alert(hd_id+hd_pw)
 		//alert(this.login.getRowCount())
 		//alert(this.login.getColCount())
 		//this.login.deleteColumn(0)
-		//this.login.deleteRow(0)
+		//this.login.deleteRow(0) 
 		//this.login.deleteAll();
 		//this.login.rowposition
 		var id="login";
-		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_admin_pw="+hd_admin_pw;
+		var url = "http://192.168.0.18:8080/hy_HD_admin_spring/login?hd_code="+hd_code+"&hd_pw="+hd_pw;
 		var reqDs = "";
 		var respDs="login=ar";//
 		var args ="";
@@ -112,7 +112,7 @@ this.Button03_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
 {
 	//로그아웃
 		var id="logout";
-		var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logout";
+		var url = "http://192.168.0.18:8080/hy_HD_admin_spring/logout";
 		var reqDs = "";
 		var respDs="";//
 		var args ="";
@@ -157,7 +157,7 @@ this.ImageViewer00_onclick = function(obj:nexacro.ImageViewer,e:nexacro.ClickEve
       <Dataset id="login">
         <ColumnInfo>
           <Column id="hd_code" type="STRING" size="256"/>
-          <Column id="hd_admin_pw" type="STRING" size="256"/>
+          <Column id="hd_pw" type="STRING" size="256"/>
           <Column id="check" type="STRING" size="256"/>
           <Column id="level" type="STRING" size="256"/>
         </ColumnInfo>

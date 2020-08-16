@@ -4,10 +4,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="login">
 	<select id="logincheck" parameterType="empvo" resultType="String">
-	select count(*) from employee where hd_code=#{hd_code} and hd_admin_pw=#{hd_admin_pw}
+	select count(*) from employee where hd_code=#{hd_code} and hd_pw=#{hd_pw}
 	</select>
 	
 	<select id="logininfo" parameterType="empvo" resultType="empvo">
-	select hd_level,hd_code,hd_admin_pw,hd_name from employee where hd_code=#{hd_code} and hd_admin_pw=#{hd_admin_pw}
+	select hd_level,hd_code,hd_pw,hd_name from employee where hd_code=#{hd_code} and hd_pw=#{hd_pw}
 	</select>
 </mapper>

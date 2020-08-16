@@ -74,19 +74,19 @@
         this.registerScript("Form_Top.xfdl", function() {
         //첫화면 로딩이 되는 스크립트
         this.myload = function(obj,e){
-        	var id="loginingo";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logincheck";
-        	var reqDs = "";
-        	var respDs=" login=ar";//대이터 셋을 response
-        	var args = "";
-        	var callback ="received";
-        	this.transaction(id,url,reqDs,respDs,args,callback);
-        	this.received=function(id,code,message)
-        	{
+        	//var id="loginingo";
+        	//var url = "http://192.168.0.122:8080/hy_HD_admin_spring/logincheck";
+        	//var reqDs = "";
+        	//var respDs=" login=ar";//대이터 셋을 response
+        	//var args = "";
+        	//var callback ="received";
+        	//this.transaction(id,url,reqDs,respDs,args,callback);
+        	//this.received=function(id,code,message)
+        	//{
         		//alert(id+","+code+","+message);
-        		this.who.set_value(this.login.getColumn(0,"check")+" 환영합니다")
+        		//this.who.set_value(this.login.getColumn(0,"check")+" 환영합니다")
         		//this.alert('ss')
-        	};
+        	//};
 
         }
         this.Button00_onclick = function(obj,e)

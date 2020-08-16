@@ -38,13 +38,13 @@ public class DefaultController {
 			System.out.println(logininfo);
 			DataSet ds = new DataSet("ar");
 			ds.addColumn("hd_code",DataTypes.STRING,30);
-			ds.addColumn("hd_admin_pw", DataTypes.STRING,256);
+			ds.addColumn("hd_pw", DataTypes.STRING,256);
 			ds.addColumn("check",DataTypes.STRING,30);
 			ds.addColumn("level",DataTypes.STRING,30);
 			for(EmployeeVO e : logininfo) {
 				int row = ds.newRow();
 				ds.set(row, "hd_code", e.getHd_code());
-				ds.set(row, "hd_admin_pw", e.getHd_admin_pw());
+				ds.set(row, "hd_pw", e.getHd_pw());
 				ds.set(row, "check", "ok");
 				ds.set(row,"level",e.getHd_level());
 			}

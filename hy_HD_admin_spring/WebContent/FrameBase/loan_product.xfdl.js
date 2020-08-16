@@ -159,7 +159,7 @@
         //첫화면시 로딩이 되는 스크립트
         this.myload = function(obj,e){
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/all";
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/all";
         	var reqDs = "";
         	var respDs = " loan_pd=ar"; //데이터 셋을 response
         	var args = "";
@@ -185,7 +185,7 @@
         	var lp_dambo = encodeURI(this.Div00.form.dambov.value,"UTF-8");
         	//this.alert("dname:"+dname_val+",loc:"+loc_val)
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/lpAdd?lp_name="+lp_name+"&lp_interestrate="+lp_interestrate
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/lpAdd?lp_name="+lp_name+"&lp_interestrate="+lp_interestrate
         	+"&lp_cancelfee="+lp_cancelfee+"&lp_maximum="+lp_maximum+"&lp_dambo="+lp_dambo;
         	var reqDs = "";
         	var respDs = "";
@@ -201,7 +201,7 @@
         	var searchtype = this.Div01.form.searchtypev.value;
         	var searchvalue =this.Div01.form.searchvaluev.value;
         	var id = "urlTest03";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/search?searchtype="+searchtype+"&searchvalue="+searchvalue;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/search?searchtype="+searchtype+"&searchvalue="+searchvalue;
         	var reqDs = "";
         	var respDs = " loan_pd=ar"; //데이터 셋을 response
         	var args = "";
@@ -220,7 +220,7 @@
         	var lp_num = this.loan_pd.getColumn(this.loan_pd.rowposition,"lp_num");
 
         	var id = "urlTest01";
-        	var url = "http://192.168.0.122:8080/hy_HD_admin_spring/lpdel?lp_num="+lp_num;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/lpdel?lp_num="+lp_num;
         	var reqDs = "";
         	var respDs = "";
         	var args = "";
