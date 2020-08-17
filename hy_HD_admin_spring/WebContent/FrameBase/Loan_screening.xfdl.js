@@ -287,9 +287,17 @@
         	var startdate = this.Div00.form.calstartday.value;
         	var enddate = parseInt(this.Div00.form.calendday.value) + 1;
         	var name = this.Div00.form.mem_name.value;
-        	var state = this.Div00.form.lc_state.value;
-        	var lp_name = this.Div00.form.lp_name.value;
+        	var state = encodeURI(this.Div00.form.lc_state.value,"UTF-8");
+        	var lp_name = encodeURI(this.Div00.form.lp_name.value,"URF-8");
         	var lc_numv = this.Div00.form.lc_num.value;
+        	this.alert("11");
+        	this.alert(startdate);
+        	this.alert(enddate);
+        	this.alert(name);
+        	this.alert(state);
+        	this.alert(lp_name);
+        	this.alert(lc_numv)
+
         	if(name == null){
         	name = 'null';
         	}

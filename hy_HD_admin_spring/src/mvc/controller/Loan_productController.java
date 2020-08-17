@@ -139,6 +139,7 @@ public class Loan_productController {
 	public ModelAndView loan_screening() {
 		ModelAndView mav = new ModelAndView("all");
 		DataSet ds = new DataSet("ar");
+		System.out.println("");
 		List<Loan_screenVO> list = loan_productDAO.getscreen();
 		ds.addColumn("lc_num", DataTypes.INT, 10);
 		ds.addColumn("lp_name", DataTypes.STRING, 30);
@@ -171,9 +172,25 @@ public class Loan_productController {
 
 		System.out.println("°Ë»ö!");
 		ModelAndView mav = new ModelAndView("all");
-
+		System.out.println(vo.getFrom_dt());
+		System.out.println(vo.getLc_num());
+		System.out.println(vo.getLc_state());
+		System.out.println(vo.getLp_name());
+		System.out.println(vo.getMem_name());
+		System.out.println(vo.getTo_dt());
+		
+		try {
+			vo.setLc_state(URLDecoder.decode(vo.getLc_state(), "UTF-8"));
+			vo.setLp_name(URLDecoder.decode(vo.getLp_name(), "UTF-8"));
+			System.out.println(vo.getLc_state());
+			System.out.println(vo.getLp_name());
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		
 		List<Loan_screenVO> list = loan_productDAO.searchscreen(vo);
-
+		System.out.println(list);
 		DataSet ds = new DataSet("ar");
 		ds.addColumn("lc_num", DataTypes.INT, 10);
 		ds.addColumn("lp_name", DataTypes.STRING, 30);
@@ -205,7 +222,7 @@ public class Loan_productController {
 	public String getdetail(Model model, int lc_num) {
 		Loan_detailVO vo = loan_productDAO.getdetatil(lc_num);
 		DataSet ds = new DataSet("ar");
-
+		
 		ds.addColumn("lc_num", DataTypes.INT, 10);
 		ds.addColumn("mem_email", DataTypes.STRING, 30);
 		ds.addColumn("mem_name", DataTypes.STRING, 20);
