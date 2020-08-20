@@ -257,6 +257,12 @@ public class Loan_productController {
 	@RequestMapping(value = "/stateupdate")
 	public ModelAndView stateupdate(Loan_screensearchVO vo) {
 		ModelAndView mav = new ModelAndView("redirect:/");
+		try {
+			vo.setLc_state(URLDecoder.decode(vo.getLc_state(), "UTF-8"));
+			
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
 		loan_productDAO.stateupdate(vo);
 		return mav;
 	}

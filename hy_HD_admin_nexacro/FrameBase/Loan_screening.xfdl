@@ -191,13 +191,7 @@ this.Div00_searchbtn_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventI
 	var state = encodeURI(this.Div00.form.lc_state.value,"UTF-8");			
 	var lp_name = encodeURI(this.Div00.form.lp_name.value,"URF-8");
 	var lc_numv = this.Div00.form.lc_num.value;
-	this.alert("11");
-	this.alert(startdate);
-	this.alert(enddate);
-	this.alert(name);
-	this.alert(state);
-	this.alert(lp_name);
-	this.alert(lc_numv)
+	
 	
 	if(name == null){
 	name = 'null';

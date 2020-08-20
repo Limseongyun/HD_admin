@@ -290,13 +290,7 @@
         	var state = encodeURI(this.Div00.form.lc_state.value,"UTF-8");
         	var lp_name = encodeURI(this.Div00.form.lp_name.value,"URF-8");
         	var lc_numv = this.Div00.form.lc_num.value;
-        	this.alert("11");
-        	this.alert(startdate);
-        	this.alert(enddate);
-        	this.alert(name);
-        	this.alert(state);
-        	this.alert(lp_name);
-        	this.alert(lc_numv)
+
 
         	if(name == null){
         	name = 'null';
@@ -317,8 +311,9 @@
 
         this.stateupdate = function (state,lc_num)
         {
+        	var statev = encodeURI(state,"UTF-8")
         	var id = "urlTest01";
-        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/stateupdate?lc_state="+state+"&lc_num="+lc_num;
+        	var url = "http://192.168.0.18:8080/hy_HD_admin_spring/stateupdate?lc_state="+statev+"&lc_num="+lc_num;
         	var reqDs = "";
         	var respDs = "";
         	var args = "";
